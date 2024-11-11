@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Hide the native scrollbar but keep functionality */
+body {
+    overflow-x: hidden;
+  }
+  
+  [data-scroll-container] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    min-height: 100vh;
+  }
