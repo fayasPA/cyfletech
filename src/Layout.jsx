@@ -11,7 +11,7 @@ const Layout = () => {
       className="your-main-container bg-contain md:bg-contain bg-center min-h-screen flex flex-col"
     >
         <div className="bg-selBlack/90 flex-grow md:pb-0">
-          {/* <Navbar /> */}
+          <Navbar />
 
           <main className="flex-grow">
             <Outlet />
