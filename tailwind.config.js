@@ -10,7 +10,9 @@ export default {
         green: "#32de84", 
         selRed: "#9C2327",
         selBlack: "#101010",
-        borderColor: "#ffffff59",
+        oldBorderColor: "#ffffff59",
+        borderColor: "#908f8f",
+        
         borderColor2: "#ffffffce",
         zinc: "#232222",
         gray: "#555555",

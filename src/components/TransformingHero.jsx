@@ -126,7 +126,7 @@ const TransformingHero = () => {
           className="absolute top-0 right-0 w-full h-screen bg-cover bg-center transition-all duration-300"
         >
           <img 
-            src="/src/assets/images/bghero.jpeg"
+            src="/src/assets/images/home_bg.jpg"
             alt="Designer"
             className="w-full h-full object-cover"
           />
