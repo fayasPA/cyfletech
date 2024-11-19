@@ -43,7 +43,7 @@ const TextWithImages = () => {
               className="w-12 h-8 md:w-16 md:h-16 rounded-sm object-cover inline-block"
             />
           </span>{' '}
-          Webflow experiences.
+          Webflow experiences, crafting visually stunning and highly functional websites that elevate your brand.
         </h1>
       </div>
     </div>
