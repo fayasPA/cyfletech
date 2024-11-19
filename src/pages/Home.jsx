@@ -1,12 +1,18 @@
 import React from 'react'
 import TransformingHero from '../components/TransformingHero'
 import TextWithImages from '../components/TextWithImages'
+import Work from '../components/Work'
+import WhyWorkWithMe from '../components/WhyWorkWithMe'
+import FAQ from '../components/Faq'
 
 const Home = () => {
   return (
     <>
     <div  className=''><TransformingHero/></div>
     <div className=''> <TextWithImages /> </div>
+    <div className=''> <Work/> </div>
+    <div className=''> <WhyWorkWithMe/> </div>
+    <div className=''> <FAQ/> </div>
     </>
   )
 }
