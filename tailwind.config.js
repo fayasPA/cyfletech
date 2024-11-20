@@ -15,7 +15,7 @@ export default {
         
         borderColor2: "#ffffffce",
         zinc: "#232222",
-        gray: "#555555",
+        // gray: "#555555",
         lineGray: "#656565",
         selWhite: "#F2F1EF",
       },
