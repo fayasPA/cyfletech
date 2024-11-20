@@ -58,7 +58,7 @@ const LineLoader = ({ onComplete }) => {
   return (
     <div
       ref={containerRef}
-      className="fixed top-0 left-0 w-full h-screen flex flex-col justify-end overflow-hidden z-50 bg-black/50"
+      className="fixed inset-0 flex flex-col justify-end overflow-hidden z-50"
     >
       {numbers.map((number) => (
         <div key={number} className="h-[10vh] bg-white"></div>

@@ -6,6 +6,9 @@
 /* Hide the native scrollbar but keep functionality */
 body {
     overflow-x: hidden;
+    /* font-family: "Doto", sans-serif; */
+    font-family: "Cormorant Garamond", serif;
+
   }
   
   [data-scroll-container] {
@@ -16,3 +19,31 @@ body {
     overflow: hidden;
     min-height: 100vh;
   }
+
+
+  .progress-bar {
+    width: 100%; /* Full width */
+    height: 2px; /* Adjust height as needed */
+    border-radius: 8px;
+    /* background-color: #47a7ff44; */
+    overflow: hidden; /* Ensures animation stays within bounds */
+  }
+  
+  .progress-bar div {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    background-color: #fff;
+    animation: progressBarAnimation 2.5s linear; /* Duration set to 2 seconds */
+  }
+  
+  @keyframes progressBarAnimation {
+    from {
+      transform: scaleX(0); /* Start from 0% width */
+    }
+  
+    to {
+      transform: scaleX(1); /* End at 100% width */
+    }
+  }
+  

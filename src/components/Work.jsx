@@ -111,7 +111,7 @@ const Work = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[1400px] mx-auto">
           {projects.map((project, index) => (
             <div
-              key={project.title}
+              key={index}
               ref={el => cardsRef.current[index] = el}
               className="group cursor-pointer"
             >

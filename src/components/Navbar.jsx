@@ -107,7 +107,7 @@ const Navbar = () => {
                 {/* Main container */}
                 <div className="h-full w-full flex flex-col md:flex-row">
                     {/* Left section (Contact Info) */}
-                    <div className="w-full md:w-1/3 h-full text-white flex flex-col justify-start items-start px-6 py-10 space-y-6">
+                    <div className="w-full md:w-1/3 md:h-full text-white flex flex-col justify-start items-start px-6 py-10 space-y-6">
                         <p className="text-sm font-light">ONE SPOT AVAILABLE FOR JANUARY 2025</p>
                         <button className="px-6 py-2 border border-white text-sm uppercase hover:bg-white hover:text-black transition">
                             Contact
@@ -115,17 +115,18 @@ const Navbar = () => {
                     </div>
 
                     {/* Right section (Nav Items) */}
-                    <div className="w-full md:w-2/3 h-full text-white px-10 flex items-center justify-end">
-                        <div className="grid grid-cols-2 gap-6 w-full p-10">
+
+                    <div className="w-full md:w-2/3 text-white px-4 md:px-10 flex items-center justify-end">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 w-full p-4 md:p-10 h-full">
                             {/* Navigation Items */}
                             {navLists.map((item, index) => (
                                 <NavLink
                                     key={item.order}
                                     to={item.path}
                                     className={({ isActive }) =>
-                                        `block ${isActive ? "font-semibold" : "font-extralight"} text-sm md:text-9xl transition duration-300 
-                                        ${index % 2 === 0 ? "text-left" : "text-right"} 
-                                        ${index === navLists.length - 1 && navLists.length % 2 !== 0 ? "text-center col-span-2" : ""}`
+                                        `block ${isActive ? "font-semibold" : "font-extralight"} text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl transition duration-300 
+          ${index % 2 === 0 ? "text-left" : "text-right"} 
+          ${index === navLists.length - 1 && navLists.length % 2 !== 0 ? "text-center col-span-2" : ""}`
                                     }
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
@@ -134,6 +135,7 @@ const Navbar = () => {
                             ))}
                         </div>
                     </div>
+
                 </div>
             </div>
         </nav>
