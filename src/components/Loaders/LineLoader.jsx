@@ -1,57 +1,68 @@
-import React, { useEffect, useState } from "react";
-import gsap from "gsap";
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
-const LineLoader = () => {
-  const [currentValue, setCurrentValue] = useState(0);
+const LineLoader = ({ onComplete }) => {
+  const containerRef = useRef(null);
+  const numbers = Array.from({ length: 10 }, (_, i) => i + 1);
 
   useEffect(() => {
-    let current = 0;
+    const lines = Array.from(containerRef.current.children);
 
-    const updateCounter = () => {
-      if (current >= 100) return;
+    // Set initial state: all divs are out of view at the bottom
+    gsap.set(lines, {
+      yPercent: 100,
+      opacity: 0,
+    });
 
-      let increment = Math.floor(Math.random() * 10) + 1;
-      current += increment;
+    // Timeline for stacking divs from bottom to top
+    const tl = gsap.timeline({
+      defaults: { ease: 'none' },
+      onComplete: () => {
+        // Start the second animation to remove divs
+        removeDivs();
+      },
+    });
 
-      if (current > 100) current = 100;
+    // Animate divs stacking
+    tl.to(lines, {
+      yPercent: 0,
+      opacity: 1,
+      duration: 0.5,
+      stagger: {
+        each: 0.05,
+        from: 'end', // Start stacking from the bottom
+      },
+    });
 
-      setCurrentValue(current);
-
-      const delay = Math.floor(Math.random() * 200) + 50;
-      setTimeout(updateCounter, delay);
+    // Function to remove divs from top to bottom
+    const removeDivs = () => {
+      gsap.to(lines, {
+        yPercent: -100,
+        opacity: 0,
+        duration: 0.5,
+        stagger: {
+          each: 0.05,
+          from: 'start', // Start removing from the top
+        },
+        onComplete: () => {
+          onComplete?.(); // Notify the parent that the animation is complete
+        },
+      });
     };
 
-    updateCounter();
-
-    // GSAP animations
-    gsap.to(".counter", { delay: 3.5, opacity: 0, duration: 0.25 });
-    gsap.to(".bar", {
-      delay: 3.5,
-      height: 0,
-      duration: 1.5,
-      stagger: { amount: 0.5 },
-      ease: "power4.inOut",
-    });
-  }, []);
+    return () => {
+      tl.kill(); // Clean up the timeline
+    };
+  }, [onComplete]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
-      {/* Counter */}
-      <div className="counter fixed flex justify-end items-end w-full h-full text-white p-2 text-[20vw]">
-        {currentValue}
-      </div>
-
-      {/* Overlay and Bars */}
-      <div className="overlay fixed inset-0 flex z-20">
-        {Array(10)
-          .fill(0)
-          .map((_, index) => (
-            <div
-              key={index}
-              className="bar w-[10vw] h-[105vh] bg-green-700"
-            ></div>
-          ))}
-      </div>
+    <div
+      ref={containerRef}
+      className="fixed inset-0 flex flex-col justify-end overflow-hidden z-50"
+    >
+      {numbers.map((number) => (
+        <div key={number} className="h-[10vh] bg-white"></div>
+      ))}
     </div>
   );
 };

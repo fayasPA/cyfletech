@@ -68,7 +68,7 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-1000 ease-in-out 
+            className={`fixed top-0 left-0 w-full z-40 transition-all duration-1000 ease-in-out 
                 ${isScrolled ? 'backdrop-blur-sm ' : 'bg-transparent'}
                 ${isMobileMenuOpen && !isScrolled ? 'bg-selRed/30 backdrop-blur-sm' : ''}
                 ${isMobileMenuOpen && isScrolled ? 'backdrop-blur-sm bg-black' : ''}
