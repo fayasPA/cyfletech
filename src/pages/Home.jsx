@@ -4,6 +4,7 @@ import TextWithImages from '../components/TextWithImages'
 import Work from '../components/Work'
 import WhyWorkWithMe from '../components/WhyWorkWithMe'
 import FAQ from '../components/Faq'
+import Services from '../components/Services'
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
     <div className=''> <TextWithImages /> </div>
     <div className=''> <Work/> </div>
     <div className=''> <WhyWorkWithMe/> </div>
+    <div className=''> <Services/> </div>
     <div className=''> <FAQ/> </div>
     </>
   )
