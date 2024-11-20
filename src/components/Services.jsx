@@ -1,0 +1,123 @@
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const services = [
+  {
+    id: 1,
+    title: "Full site Design + Webflow build",
+    description:
+      "Full custom Website design and Webflow development. I create with scalability and flexibility in mind, leveraging Webflow's CMS and Client-First, the most powerful Webflow Framework. Let's create a beautiful and functional web experience for your brand.",
+    imgSrc:
+      "https://cdn.prod.website-files.com/6405fcf125150a174dce6e85/65ff0c11e874940f02608521_full-design-plus-webflow-development-matteo.webp",
+    link: "/contact",
+  },
+  {
+    id: 2,
+    title: "Figma-to-Webflow",
+    description:
+      "Let's translate your design to reality Developing in Webflow. Fast, scalable, and pixel perfect.",
+    imgSrc:
+      "https://cdn.prod.website-files.com/6405fcf125150a174dce6e85/65ff07c3590d432567fc928d_figma-to-webflow-matteo.webp",
+    link: "/contact",
+  },
+  {
+    id: 3,
+    title: "5-days landing page",
+    description:
+      "Do you need a custom one-pager or a landing page? I'm here for you.",
+    imgSrc:
+      "https://cdn.prod.website-files.com/6405fcf125150a174dce6e85/65ff0c110e8860067f87e687_landing-page-matteo.webp",
+    link: "/contact",
+  },
+  {
+    id: 4,
+    title: "On-going monthly support",
+    description:
+      "Unlimited Design &/or Webflow requests, delivered one at a time.",
+    bullets: ["Unlimited requests", "Quick turnaround", "Personalized support"],
+    link: "/contact",
+  },
+];
+
+const Services = () => {
+  const sectionRef = useRef(null);
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    const cards = cardsRef.current;
+
+    gsap.to(cards, {
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top center",
+        end: "bottom center",
+        scrub: 1,
+      },
+      y: 0, // To animate from a certain value (e.g., 100px) to the current position
+      opacity: 1,
+      duration: 1.2,
+      stagger: 0.2,
+      ease: "power3.out",
+    });
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="py-16 px-6 bg-black text-white relative overflow-hidden pb-32"
+    >
+      <div className="text-center mb-12">
+        <h2 className="text-5xl font-bold tracking-wide font-serif">Services</h2>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        {services.map((service, index) => (
+          <div
+            key={service.id}
+            ref={(el) => (cardsRef.current[index] = el)}
+            className="relative p-6 bg-black/80 border-2 border-neutral-600 rounded-lg shadow-lg hover:scale-105 hover:border-white hover:shadow-md transition-all duration-300"
+          >
+            <h3 className="text-2xl font-serif font-bold mb-4 tracking-wide text-center">
+              {service.title}
+            </h3>
+            <p className="text-gray-300 text-sm leading-relaxed mb-6">
+              {service.description}
+            </p>
+            {service.bullets && (
+              <ul className="mb-4 text-sm">
+                {service.bullets.map((bullet, index) => (
+                  <li
+                    key={index}
+                    className="flex items-center mb-2 text-gray-300"
+                  >
+                    <span className="w-4 h-4 mr-2 bg-green-500 rounded-full"></span>
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {service.imgSrc && (
+              <div className="mt-6">
+                <img
+                  src={service.imgSrc}
+                  alt={service.title}
+                  className="w-full h-64 object-contain rounded-lg border border-neutral-500"
+                />
+              </div>
+            )}
+            <a
+              href={service.link}
+              className="block w-full text-center mt-4 py-2 border border-neutral-500 text-white font-semibold rounded-md hover:bg-white hover:text-black transition-all duration-300"
+            >
+              Get in touch
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default Services;

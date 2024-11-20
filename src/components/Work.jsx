@@ -33,17 +33,9 @@ const Work = () => {
       });
 
       // Hover animation
-      const image = card.querySelector('img');
       const content = card.querySelector('.content-wrapper');
       
-      gsap.set(image, { scale: 1 });
-      
       card.addEventListener('mouseenter', () => {
-        gsap.to(image, {
-          scale: 1.05,
-          duration: 0.4,
-          ease: 'power2.out'
-        });
         gsap.to(content, {
           y: -5,
           duration: 0.4,
@@ -52,11 +44,6 @@ const Work = () => {
       });
 
       card.addEventListener('mouseleave', () => {
-        gsap.to(image, {
-          scale: 1,
-          duration: 0.4,
-          ease: 'power2.out'
-        });
         gsap.to(content, {
           y: 0,
           duration: 0.4,
@@ -73,7 +60,8 @@ const Work = () => {
   const projects = [
     {
       title: 'Premiersteel',
-      image: '/src/assets/images/premiersteel.png',
+      videoId: '5OEk9v8Tzn4', // Example YouTube video ID
+      link: "https://thepremiersteels.com",
       stats: [
         { value: '+77%', label: 'Avg. session time' },
         { value: 'x1.8', label: 'Conversions' }
@@ -81,19 +69,22 @@ const Work = () => {
     },
     {
       title: 'Luxe moto',
-      image: '/src/assets/images/luxmoto.png',
+      videoId: 'jK2rgkw_sOw', // Example YouTube video ID
+      link: "https://luxemoto.in",
       stats: []
     },
     {
-        title: 'Luxe moto',
-        image: '/src/assets/images/luxmoto.png',
-        stats: []
-      },
-      {
-        title: 'Luxe moto',
-        image: '/src/assets/images/luxmoto.png',
-        stats: []
-      }
+      title: 'Amani Motors',
+      link: "https://amanimotors.in",
+      videoId: 'Uu_pSi12Q7U', // Example YouTube video ID
+      stats: []
+    },
+    {
+      title: 'Alt Co',
+      link: "https://team-nkg-reimagine-round1.vercel.app/",
+      videoId: 'lrXv7fnu0Yg', // Example YouTube video ID
+      stats: []
+    }
   ];
 
   return (
@@ -116,13 +107,18 @@ const Work = () => {
               className="group cursor-pointer"
             >
               <div className="relative rounded-2xl overflow-hidden bg-zinc-900 h-full">
-                {/* Image */}
+                {/* Video */}
                 <div className="aspect-[16/10] w-full overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={`https://www.youtube.com/embed/${project.videoId}?autoplay=1&controls=0&modestbranding=1&loop=1&showinfo=0&mute=1`}
+                    title={project.title}
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
                     className="w-full h-full object-cover object-center"
-                  />
+                  ></iframe>
                 </div>
 
                 {/* Content */}
@@ -131,7 +127,10 @@ const Work = () => {
                     <h2 className="text-white text-2xl md:text-3xl font-light">
                       {project.title}
                     </h2>
-                    <button className="bg-zinc-800 text-white px-4 py-1.5 rounded text-sm font-light">
+                    <button
+                      className="bg-zinc-800 text-slate-300 px-4 py-1.5 rounded text-lg hover:scale-110 hover:border hover:text-white transition-all font-light"
+                      onClick={() => window.location.href = project.link}
+                    >
                       WEBSITE
                     </button>
                   </div>
