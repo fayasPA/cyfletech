@@ -6,6 +6,7 @@ import WhyWorkWithMe from '../components/WhyWorkWithMe'
 import FAQ from '../components/Faq'
 import Services from '../components/Services'
 
+
 const Home = () => {
   return (
     <>
@@ -15,6 +16,7 @@ const Home = () => {
     <div className=''> <WhyWorkWithMe/> </div>
     <div className=''> <Services/> </div>
     <div className=''> <FAQ/> </div>
+
     </>
   )
 }

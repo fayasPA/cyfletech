@@ -95,7 +95,7 @@ const Work = () => {
           ref={headingRef}
           className="text-white text-5xl md:text-7xl font-extralight text-center mb-20"
         >
-          Work
+          Works
         </h1>
 
         {/* Projects Grid */}

@@ -5,7 +5,7 @@ import { companyName } from '../utils/constants';
 
 export const navLists = [
     { name: 'Home', path: '/', order: 1 },
-    { name: 'Work', path: '/products', order: 2 },
+    { name: 'Work', path: '/work', order: 2 },
     { name: 'Blog', path: '/blog', order: 3 },
     { name: 'About', path: '/about', order: 4 },
     { name: 'Contact', path: '/contact', order: 5 },
