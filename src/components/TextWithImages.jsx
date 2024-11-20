@@ -19,9 +19,9 @@ const TextWithImages = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black px-4 text-center">
+    <div className="flex items-center justify-center min-h-screen md:px-4 text-center">
       <div className="text-white font-serif">
-        <h1 className="text-3xl md:text-5xl leading-relaxed md:leading-loose mx-20">
+        <h1 className="text-4xl md:text-5xl leading-relaxed md:leading-loose mx-10 md:mx-20">
           Hi, we're<span className="inline-block hover-scale transition-all">
             <img
               src="/src/assets/images/premiersteel.png"

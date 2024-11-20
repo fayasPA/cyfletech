@@ -10,6 +10,10 @@ body {
     font-family: "Cormorant Garamond", serif;
 
   }
+
+  .section-heading{
+    @apply text-5xl md:text-7xl font-extralight;
+  }
   
   [data-scroll-container] {
     position: fixed;

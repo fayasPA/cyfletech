@@ -12,64 +12,64 @@ const Footer = () => {
   const textRef = useRef(null);
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+  // useEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: footerRef.current,
-        start: "top bottom",
-        end: "top center",
-        scrub: 1
-      }
-    });
+  //   const tl = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: footerRef.current,
+  //       start: "top bottom",
+  //       end: "top center",
+  //       scrub: 1
+  //     }
+  //   });
 
-    tl.fromTo(
-      titleRef.current,
-      {
-        y: 50,
-        opacity: 0
-      },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out"
-      }
-    )
-      .fromTo(
-        emailRef.current,
-        {
-          y: 30,
-          opacity: 0
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out"
-        },
-        "-=0.5"
-      )
-      .fromTo(
-        textRef.current,
-        {
-          y: 30,
-          opacity: 0
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out"
-        },
-        "-=0.5"
-      );
+  //   tl.fromTo(
+  //     titleRef.current,
+  //     {
+  //       y: 50,
+  //       opacity: 0
+  //     },
+  //     {
+  //       y: 0,
+  //       opacity: 1,
+  //       duration: 1,
+  //       ease: "power3.out"
+  //     }
+  //   )
+  //     .fromTo(
+  //       emailRef.current,
+  //       {
+  //         y: 30,
+  //         opacity: 0
+  //       },
+  //       {
+  //         y: 0,
+  //         opacity: 1,
+  //         duration: 1,
+  //         ease: "power3.out"
+  //       },
+  //       "-=0.5"
+  //     )
+  //     .fromTo(
+  //       textRef.current,
+  //       {
+  //         y: 30,
+  //         opacity: 0
+  //       },
+  //       {
+  //         y: 0,
+  //         opacity: 1,
+  //         duration: 1,
+  //         ease: "power3.out"
+  //       },
+  //       "-=0.5"
+  //     );
 
-    return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill());
-    };
-  }, []);
+  //   return () => {
+  //     ScrollTrigger.getAll().forEach(t => t.kill());
+  //   };
+  // }, []);
 
   return (
     <footer ref={footerRef} className="min-h-screen bg-black text-white flex flex-col justify-center px-6 md:px-12 lg:px-24">
@@ -91,7 +91,7 @@ const Footer = () => {
           </div>
           <h2
             ref={titleRef}
-            className="text-4xl md:text-6xl lg:text-7xl font-light mb-16 leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-light mb-16 leading-tight text-white"
           >
             Do you want to start<br />
             a project together?

@@ -6,6 +6,7 @@ import AmanimotorsImage from "../../assets/images/amanimotors.png";
 import LuxemotoImage from "../../assets/images/luxmoto.png";
 import PremiersteelsImage from "../../assets/images/premiersteel.png";
 import AltcoImage from "../../assets/images/altco.png";
+import FizziImage from "../../assets/images/fizzi.png";
 // videos
 //import Luxemoto from "../../assets/videos/luxmoto.mp4";
 //import Amanimotors from "../../assets/videos/amanimotors.mp4";
@@ -186,9 +187,10 @@ export const projectsData = [
         number: "05",
         description:
             "The Fizzy website is a project built to learn advanced web technologies and design principles. It features smooth animations with GSAP, and uses React and Tailwind CSS and Three.js for modern, visually appealing design",
-        tags: ["React", "Tailwind", "GSAP","Three.JS"],
+        tags: ["React", "Tailwind", "GSAP", "Three.JS"],
+        imageUrl: FizziImage,
         videoUrl: 'https://youtu.be/QFXBquu7ItI',
-     link: "https://fizzi-demo.vercel.app/",
+        link: "https://fizzi-demo.vercel.app/",
         githubLink: "https://github.com/Kiran-nj/Fizzzy"
     },
 

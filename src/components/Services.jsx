@@ -70,7 +70,7 @@ const Services = () => {
       className="py-16 px-6 bg-black text-white relative overflow-hidden pb-32"
     >
       <div className="text-center mb-12">
-        <h2 className="text-5xl font-bold tracking-wide font-serif">Services</h2>
+        <h2 className="section-heading tracking-wide ">Services</h2>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
         {services.map((service, index) => (

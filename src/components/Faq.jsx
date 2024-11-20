@@ -39,7 +39,7 @@ const FAQ = () => {
   ];
 
   return (
-    <div className=" w-full mx-auto p-6 bg-white">
+    <div className=" w-full mx-auto p-6 bg-white flex flex-col">
       <h1 className="text-4xl font-serif text-center mb-10">FAQs</h1>
       <div className="space-y-4">
         {faqData.map((item, index) => (

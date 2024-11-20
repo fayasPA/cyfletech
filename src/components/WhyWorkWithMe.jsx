@@ -5,7 +5,7 @@ const WhyWorkWithMe = () => {
     <div className="flex flex-col lg:flex-row h-screen">
       {/* Left Fixed Section */}
       <div className="lg:sticky lg:top-0 lg:h-screen flex items-center justify-center bg-white p-6 lg:w-1/3">
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif leading-tight text-center lg:text-left">
+        <h1 className="section-heading text-black leading-tight text-center lg:text-left">
           Why work <br className="hidden lg:block" /> with me
         </h1>
       </div>
@@ -17,7 +17,7 @@ const WhyWorkWithMe = () => {
           <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-center lg:text-left">
             1. Professional Webflow Partner
           </h2>
-          <p className="text-gray-600 mx-4 md:mx-12 lg:mx-20 text-base md:text-lg lg:text-2xl text-slate-400 text-center lg:text-left">
+          <p className="text-gray-600 mx-4 md:mx-12 lg:mx-20 text-base md:text-lg lg:text-2xl text-center lg:text-left">
             I'm 1 of 13 official Webflow partners in Italy. With nearly five years of experience developing websites in Webflow, I'm efficient at
             building beautiful, CMS-powered websites. Learn more about my Webflow process.
           </p>
@@ -28,7 +28,7 @@ const WhyWorkWithMe = () => {
           <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-center lg:text-left">
             2. Award-winning design
           </h2>
-          <p className="text-gray-600 mx-4 md:mx-12 lg:mx-20 text-base md:text-lg lg:text-2xl text-slate-400 text-center lg:text-left">
+          <p className="text-gray-600 mx-4 md:mx-12 lg:mx-20 text-base md:text-lg lg:text-2xl text-center lg:text-left">
             Years of experience in design and Webflow development together allow me to create unique and cohesive experiences that get recognized.
           </p>
         </div>
@@ -38,7 +38,7 @@ const WhyWorkWithMe = () => {
           <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-center lg:text-left">
             3. Result-oriented work
           </h2>
-          <p className="text-gray-600 mx-4 md:mx-12 lg:mx-20 text-base md:text-lg lg:text-2xl text-slate-400 text-center lg:text-left">
+          <p className="text-gray-600 mx-4 md:mx-12 lg:mx-20 text-base md:text-lg lg:text-2xl text-center lg:text-left">
             I approach every project with a focus on achieving tangible results. From design to functionality, I want to help you achieve your goals, not just
             build something that looks nice. Let's work together to create a website that gets results.
           </p>
