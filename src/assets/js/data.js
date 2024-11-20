@@ -4,6 +4,8 @@ import { LuGraduationCap } from "react-icons/lu";
 // images
 import AmanimotorsImage from "../../assets/images/amanimotors.png";
 import LuxemotoImage from "../../assets/images/luxmoto.png";
+import PremiersteelsImage from "../../assets/images/premiersteel.png";
+import AltcoImage from "../../assets/images/altco.png";
 // videos
 //import Luxemoto from "../../assets/videos/luxmoto.mp4";
 //import Amanimotors from "../../assets/videos/amanimotors.mp4";
@@ -139,7 +141,7 @@ export const projectsData = [
             "Premier Steels is a Steel distribution company website, It make use of react, gsap, etc at frontend.",
         tags: ["React", "GSAP", "Tailwind"],
         videoUrl: 'https://youtu.be/5OEk9v8Tzn4',
-        imageUrl: LuxemotoImage,
+        imageUrl: PremiersteelsImage,
         backgroundColor: "black",
         link: "https://thepremiersteels.com",
         githubLink: "https://github.com/fayasPA/premier_steels"
@@ -174,6 +176,7 @@ export const projectsData = [
         description:
             "The AltCo  website clone is a project built to learn   advanced web technologies and design principles. It features smooth animations with GSAP, and uses React and Tailwind CSS for modern, visually appealing design.",
         tags: ["React", "Tailwind", "GSAP"],
+        imageUrl: AltcoImage,
         videoUrl: 'https://youtu.be/lrXv7fnu0Yg',
         link: "https://team-nkg-reimagine-round1.vercel.app/",
         githubLink: "https://github.com/Kiran-nj/BestWeb.git"

@@ -16,7 +16,7 @@ const Layout = () => {
   return (
     <div className="bg-selBlack your-main-container bg-contain md:bg-contain bg-center min-h-screen flex flex-col">
       {/* Conditionally render the PageLoader */}
-      {isLoaderVisible && <PageLoader onComplete={handleLoaderComplete} />}
+      {/* {isLoaderVisible && <PageLoader onComplete={handleLoaderComplete} />} */}
       
       <div className="flex-grow md:pb-0">
         <Navbar />

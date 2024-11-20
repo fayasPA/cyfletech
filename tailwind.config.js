@@ -7,6 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
+        selGray: {
+          DEFAULT: "#525252",
+          100: "#252525",
+          200: "#141414",
+          body: '#18392B',
+          luxe: '#054e20',
+        },
         green: "#32de84", 
         selRed: "#9C2327",
         selBlack: "#101010",
