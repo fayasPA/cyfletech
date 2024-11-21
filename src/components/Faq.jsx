@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { faqData } from "../assets/js/data";
+import { PiMinusThin, PiPlusThin } from "react-icons/pi";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,79 +14,58 @@ const FAQ = () => {
   };
 
   useEffect(() => {
-    const faqDetails = gsap.utils.toArray(".faq-content:not(:first-child)");
-    const faqPhotos = gsap.utils.toArray(".faq-photo:not(:first-child)");
-    gsap.set(faqPhotos, { yPercent: 101 });
-
-    const allFaqPhotos = gsap.utils.toArray(".faq-photo");
-
-    let mm = gsap.matchMedia();
-
-    mm.add("(min-width: 600px)", () => {
-      ScrollTrigger.create({
+    gsap.to(".faq-right", {
+      scrollTrigger: {
         trigger: ".faq-container",
-        start: "top top",
-        end: "bottom bottom",
-        pin: ".faq-right",
-      });
-
-      faqDetails.forEach((detail, index) => {
-        let headline = detail.querySelector("h1");
-        let animation = gsap.timeline()
-          .to(faqPhotos[index], { yPercent: 0 })
-          .set(allFaqPhotos[index], { autoAlpha: 0 });
-
-        ScrollTrigger.create({
-          trigger: headline,
-          start: "top 80%",
-          end: "top 50%",
-          animation: animation,
-          scrub: true,
-        });
-      });
-
-      return () => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      };
+        start: "top top", // Pin when the container reaches the top
+        endTrigger: ".faq-content",
+        end: "bottom 15%", // End when faq-right's bottom reaches the top
+        pin: ".faq-left", // Pin the faq-left element
+        scrub: 1, // Smooth scrolling of faq-right
+        markers: false, // Disable scroll markers for clean UI
+      },
     });
   }, []);
 
   return (
-    <div className="faq-container flex flex-col md:flex-row bg-white text-black">
-      {/* Right Section */}
-      <div className="faq-right flex flex-col justify-start items-center w-full md:w-1/2 h-auto md:h-screen">
-        <h1 className="text-4xl md:text-6xl font-serif text-center mt-8 md:mt-0">
-          FAQs
-        </h1>
-      </div>
+    <div className="bg-white min-h-screen md:min-h-[50vh] px-6 sm:px-10 lg:px-20 flex justify-center items-center">
+      <div className="faq-container flex flex-row justify-center gap-6 max-w-[80rem] py-20">
+        {/* left Section (Heading) */}
+        <div className="faq-left md:w-1/2">
+          <h1 className="section-heading">FAQs</h1>
+        </div>
 
-      {/* Left Section */}
-      <div className="faq-left flex-1 md:w-1/2">
-        <ul className="faq-content mx-auto w-4/5">
-          {faqData.map((faq, index) => (
-            <li
-              key={index}
-              className={`faq-section border-b last:border-none transition-all duration-300 h-96 overflow-hidden`}
-            >
-              <button
-                className="w-full flex justify-between items-center text-lg font-medium focus:outline-none"
-                onClick={() => toggleFAQ(index)}
+        {/* right Section (Q&A) */}
+        <div className="faq-right flex-1 lg:w-1/2">
+          <ul className="faq-content">
+            {faqData.map((faq, index) => (
+              <li
+                key={index}
+                className={`faq-section transition-all duration-300 border-b pb-2 last:border-none overflow-hidden group hover:border-none`}
               >
-                {faq.question}
-                <span className="ml-2 text-gray-500">
-                  {activeIndex === index ? "-" : "+"}
-                </span>
-              </button>
-              <div
-                className={`transition-opacity duration-300 ${
-                  activeIndex === index ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <p className="mt-2 text-gray-600 text-sm">{faq.answer}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+                <button
+                  className="mt-1 md:mt-2 font-karla w-full flex justify-between items-center text-2xl md:text-3xl outline-none hover:px-2 md:hover:px-4  hover:bg-gray-200 hover:rounded-xl transition-all duration-300"
+                  onClick={() => toggleFAQ(index)}
+                >
+                  <span className="text-left font-normal">{faq.question}</span>
+
+                  <span className="m-2 border border-selGray p-1 text-black flex items-center justify-center w-8 h-6 md:w-12 md:h-8 ml-2 rounded-full bg-gray-200 group-hover:bg-white transition-all duration-500 ease-in-out">
+                    {activeIndex === index ? (
+                      <PiMinusThin className="text-xl sm:text-2xl md:text-2xl transition-opacity duration-500" />
+                    ) : (
+                      <PiPlusThin className="text-xl sm:text-2xl md:text-2xl transition-opacity duration-500" />
+                    )}
+                  </span>
+                </button>
+                <div
+                  className={`transition-[max-height] duration-300 overflow-hidden pl-4 ${activeIndex === index ? "max-h-screen" : "max-h-0"}`}
+                >
+                  <p className="mt-2 text-gray-600 text-lg sm:text-xl md:text-2xl">{faq.answer}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

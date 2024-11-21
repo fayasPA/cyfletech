@@ -224,7 +224,7 @@ export const skillsData = [
 export const faqData = [
     {
       question: "What services do you offer?",
-      answer: "I provide a variety of services including web development, UI/UX design, and animation.",
+      answer: "other than web design and webflow development, i do brand strategy and brand identity design. based on your needs, i am also able to put a small team together to solve the specific needs of your project.",
     },
     {
       question: "How long does it take?",
