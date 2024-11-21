@@ -219,3 +219,35 @@ export const skillsData = [
     "LLM",
     "Chatbots",
 ];
+
+
+export const faqData = [
+    {
+      question: "What services do you offer?",
+      answer: "I provide a variety of services including web development, UI/UX design, and animation.",
+    },
+    {
+      question: "How long does it take?",
+      answer: "Project timelines vary, but most projects take between 2 to 6 weeks depending on complexity.",
+    },
+    {
+      question: "Why do you develop in Webflow?",
+      answer: "Webflow allows for visually stunning and responsive websites with quick turnaround times.",
+    },
+    {
+      question: "How much does it cost?",
+      answer: "Every project is unique. Prices typically range from $5,000 to $30,000.",
+    },
+    {
+      question: "Do you work internationally?",
+      answer: "Yes, I work with clients from all over the world, ensuring clear communication and smooth collaboration.",
+    },
+    {
+      question: "What does working together look like?",
+      answer: "We start with understanding your needs, followed by design mockups, development, and final delivery.",
+    },
+    {
+      question: "Will I like working with you?",
+      answer: "My clients appreciate my transparent process and dedication to delivering high-quality work.",
+    },
+  ];
