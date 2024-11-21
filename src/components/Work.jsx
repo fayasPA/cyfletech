@@ -20,7 +20,7 @@ const Work = () => {
         {/* Heading */}
         <h1
           // ref={headingRef}
-          className="section-heading text-center mb-20"
+          className="section-heading text-center mb-20 text-white"
         >
           Works
         </h1>
