@@ -1,6 +1,4 @@
 import React from 'react';
-import { CgWorkAlt } from "react-icons/cg";
-import { LuGraduationCap } from "react-icons/lu";
 // images
 import AmanimotorsImage from "../../assets/images/amanimotors.png";
 import LuxemotoImage from "../../assets/images/luxmoto.png";
@@ -15,7 +13,6 @@ import Kiran from '../../assets/images/kiranCartoon2.jpg'
 import Hafiz from '../../assets/images/hafizcartoon1.jpeg'
 // import Hafiz from '../../assets/images/hafizcartoon2.png'
 // import Hafiz from '../../assets/images/hafizcartoon3.jpg'
-import Varun from '../../assets/images/fayas.jpg'
 import Fayas from '../../assets/images/fayasCartoon.png'
 import { Code, Zap, Monitor, Gauge, BarChart3, Layout } from 'lucide-react';
 

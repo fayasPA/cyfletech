@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { textSectionImg } from '../utils/constants';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,7 +72,7 @@ const TextWithImages = () => {
           {' '}
           <span className="inline-block hover-scale transition-all">
             <img
-              src="/src/assets/images/luxmoto.png"
+              src={textSectionImg}
               alt=""
               className="w-12 h-8 md:w-16 md:h-16 rounded-sm object-cover inline-block"
             />

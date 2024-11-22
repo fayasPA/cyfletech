@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { NavLink } from 'react-router-dom';
+import { homeHeroImg } from '../utils/constants';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -101,7 +102,7 @@ const TransformingHero = () => {
         className="absolute top-0 right-0 w-full h-screen bg-cover bg-center"
       >
         <img
-          src="/src/assets/images/home_bg.jpg"
+          src={homeHeroImg}
           alt="Designer"
           className="w-full h-full object-cover rounded-xl"
         />
