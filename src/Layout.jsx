@@ -8,6 +8,7 @@ import ScrollToTop from './utils/ScrollToTop';
 import LocomotiveScroll from 'locomotive-scroll';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import FloatingBtn from './components/FloatingBtn';
 
 const Layout = () => {
   const [isLoaderVisible, setIsLoaderVisible] = useState(true);
@@ -23,7 +24,8 @@ const Layout = () => {
         <ToastContainer toastClassName="custom-toast" />
         {/* Conditionally render the PageLoader */}
       {isLoaderVisible && <PageLoader onComplete={handleLoaderComplete} />}
-      <ScrollToTop />
+        <FloatingBtn />
+        <ScrollToTop />
       <div className="flex-grow md:pb-0">
         <Navbar />
         <main className="flex-grow">

@@ -77,7 +77,7 @@ const TransformingHero = () => {
       {/* Text Content */}
       <div
         ref={textRef}
-        className="absolute top-[30%] left-16 transform -translate-y-1/2 text-white z-10 w-1/2 opacity-100" // Set opacity to 100 here to make the text visible initially
+        className="absolute top-[30%] md:top-[50%] left-16 transform -translate-y-1/2 text-white z-10 w-1/2 opacity-100" // Set opacity to 100 here to make the text visible initially
       >
         <h1 className="font-serif text-2xl md:text-6xl mb-6">
           End to End<br />

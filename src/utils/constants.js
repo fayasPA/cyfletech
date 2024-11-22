@@ -5,6 +5,9 @@ export const companyLogo = Logo;
 export const companyName = "Cyfletech";
 export const companyPhoneNo = '9496715606'
 export const companyEmail = "info@cyfletech.com"
+export const companyInsta = "https://www.instagram.com/__fayas_muthaleef__/"
+export const companyWhatsApp = "https://www.instagram.com/__fayas_muthaleef__/"
+
 
 export const navLists = [
     { name: 'Home', path: '/', order: 1 },
