@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import LineLoader from './components/Loaders/LineLoader';
 import PageLoader from './components/Loaders/PageLoader';
 import ScrollToTop from './utils/ScrollToTop';
 import LocomotiveScroll from 'locomotive-scroll';
