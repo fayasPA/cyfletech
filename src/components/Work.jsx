@@ -34,7 +34,7 @@ const Work = () => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block"
+                className="inline-block mx-2 md:mx-0"
                 key={index}
               >
                 <TiltEffect project={project} />

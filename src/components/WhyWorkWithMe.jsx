@@ -1,47 +1,87 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { whyWorkWithUsData } from "../assets/js/data";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const WhyWorkWithMe = () => {
+  const desktopContentSectionsRef = useRef([]);
+  const galleryRef = useRef(null);
+  const rightPanelRef = useRef(null);
+
+  useEffect(() => {
+    const isAboveMd = window.matchMedia("(min-width: 768px)").matches; // Tailwind's `md` breakpoint is 768px
+
+    if (isAboveMd) {
+      const details = desktopContentSectionsRef.current.slice(1); // Exclude the first section
+
+      // Set initial positions for photos
+
+      // Create ScrollTrigger for the right panel pinning
+      ScrollTrigger.create({
+        trigger: galleryRef.current,
+        start: "top top",
+        end: "bottom bottom",
+        pin: rightPanelRef.current,
+      });
+    }
+
+    // Cleanup ScrollTrigger instances on unmount
+    return () => {
+      if (isAboveMd) {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      }
+    };
+  }, []);
+
   return (
-    <div className="flex flex-col lg:flex-row h-screen">
-      {/* Left Fixed Section */}
-      <div className="lg:sticky lg:top-0 lg:h-screen flex items-center justify-center bg-white p-6 lg:w-1/3">
-        <h1 className="section-heading text-black leading-tight text-center lg:text-left">
-          Why work <br className="hidden lg:block" /> with me
-        </h1>
+    <div ref={galleryRef} className="flex bg-white">
+      {/* Left Content */}
+      <div
+        ref={rightPanelRef}
+        className="w-full md:w-1/2 h-auto md:h-screen flex flex-col justify-center"
+      >
+        <div className="md:w-[40vw] md:h-[40vw] overflow-hidden flex justify-center items-center mx-auto">
+          <span className="text-3xl md:text-8xl font-extralight py-10">
+            Why work with us?
+          </span>
+        </div>
+
+        {/* Mobile Content */}
+        <div className="block md:hidden w-4/5 mx-auto space-y-5">
+          {whyWorkWithUsData.map((data) => (
+            <div
+              key={data.id}
+              className="bg-selGray-light rounded-lg shadow-md border border-borderColor3 p-6"
+            >
+              <h1 className="text-5xl font-bold text-black mb-4">{data.id}.</h1>
+              <h2 className="text-3xl font-semibold text-gray-800 mb-2">
+                {data.header}
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                {data.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Right Scrollable Section */}
-      <div className="flex-1 overflow-y-auto scrollbar-hide p-6 pt-16 space-y-16 md:space-y-12 lg:space-y-20 bg-white">
-        {/* Section 1 */}
-        <div className="space-y-4">
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-center lg:text-left">
-            1. Professional Webflow Partner
-          </h2>
-          <p className="text-gray-600 mx-4 md:mx-12 lg:mx-20 text-base md:text-lg lg:text-2xl text-center lg:text-left">
-            I'm 1 of 13 official Webflow partners in Italy. With nearly five years of experience developing websites in Webflow, I'm efficient at
-            building beautiful, CMS-powered websites. Learn more about my Webflow process.
-          </p>
-        </div>
-
-        {/* Section 2 */}
-        <div className="space-y-4">
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-center lg:text-left">
-            2. Award-winning design
-          </h2>
-          <p className="text-gray-600 mx-4 md:mx-12 lg:mx-20 text-base md:text-lg lg:text-2xl text-center lg:text-left">
-            Years of experience in design and Webflow development together allow me to create unique and cohesive experiences that get recognized.
-          </p>
-        </div>
-
-        {/* Section 3 */}
-        <div className="space-y-4">
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-center lg:text-left">
-            3. Result-oriented work
-          </h2>
-          <p className="text-gray-600 mx-4 md:mx-12 lg:mx-20 text-base md:text-lg lg:text-2xl text-center lg:text-left">
-            I approach every project with a focus on achieving tangible results. From design to functionality, I want to help you achieve your goals, not just
-            build something that looks nice. Let's work together to create a website that gets results.
-          </p>
+      {/* Desktop Content */}
+      <div className="w-1/2 hidden md:block">
+        <div className="mx-auto w-4/5">
+          {whyWorkWithUsData.map((data, index) => (
+            <div
+              key={data.id}
+              ref={(el) => (desktopContentSectionsRef.current[index] = el)}
+              className="min-h-screen flex flex-col justify-center"
+            >
+              <h1 className="text-4xl md:text-6xl font-bold">
+                {data.id}. {data.header}
+              </h1>
+              <p className="text-lg md:text-2xl mt-4">{data.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

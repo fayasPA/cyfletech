@@ -21,7 +21,7 @@ const TextWithImages = () => {
   return (
     <div className="flex items-center justify-center min-h-screen md:px-4 text-center">
       <div className="text-white font-serif">
-        <h1 className="text-4xl md:text-5xl leading-relaxed md:leading-loose mx-10 md:mx-20">
+        <h1 className="text-4xl md:text-5xl leading-normal md:leading-loose mx-10 md:mx-20">
           Hi, we're<span className="inline-block hover-scale transition-all">
             <img
               src="/src/assets/images/premiersteel.png"
@@ -43,7 +43,7 @@ const TextWithImages = () => {
               className="w-12 h-8 md:w-16 md:h-16 rounded-sm object-cover inline-block"
             />
           </span>{' '}
-          Webflow experiences, crafting visually stunning and highly functional websites that elevate your brand.
+          crafting visually stunning and highly functional websites that elevate your brand.
         </h1>
       </div>
     </div>

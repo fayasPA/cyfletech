@@ -16,7 +16,7 @@ export default {
           100: "#252525",
           200: "#141414",
           body: '#18392B',
-          luxe: '#054e20',
+          light: '#e4e4e480',
         },
         green: "#32de84", 
         selRed: "#9C2327",
@@ -25,6 +25,7 @@ export default {
         borderColor: "#908f8f",
         
         borderColor2: "#ffffffce",
+        borderColor3: "#d6d6d6",
         zinc: "#232222",
         // gray: "#555555",
         lineGray: "#656565",

@@ -1,29 +1,30 @@
 import React, { useState } from "react";
+import { companyEmail, companyPhoneNo } from "../utils/constants";
 
 const ContactForm = () => {
   const [darkMode, setDarkMode] = useState(true);
 
   return (
     <div
-      className={`min-h-screen flex items-center justify-center p-6 ${
+      className={`min-h-fit flex items-center justify-center p-6 ${
         darkMode ? "bg-black text-white" : "bg-white text-black"
       }`}
     >
       <div className="w-full max-w-7xlxl mx-auto grid md:grid-cols-2 gap-1 bg-black rounded-2xl overflow-hidden shadow-2xl">
         {/* Left Side - Contact Information */}
-        <div className="p-10 flex flex-col justify-center bg-slate-950">
+        <div className="p-10 flex flex-col justify-center md:items-center">
           <h2 className="text-3xl font-bold mb-6">Contact Us</h2>
           
           <div className="space-y-6">
             <div className="flex items-center space-x-4">
-              <div className="bg-blue-500 p-3 rounded-full">
+              <div className="p-3 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <div>
                 <p className="font-semibold">Email</p>
-                <p className="text-gray-400">hello@yourcompany.com</p>
+                <p className="text-gray-400">{companyEmail}</p>
               </div>
             </div>
 
@@ -35,12 +36,12 @@ const ContactForm = () => {
               </div>
               <div>
                 <p className="font-semibold">Phone</p>
-                <p className="text-gray-400">(555) 123-4567</p>
+                <p className="text-gray-400">{companyPhoneNo}</p>
               </div>
             </div>
 
             <div className="flex items-center space-x-4">
-              <div className="bg-purple-500 p-3 rounded-full">
+              <div className="p-3 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -48,14 +49,9 @@ const ContactForm = () => {
               </div>
               <div>
                 <p className="font-semibold">Location</p>
-                <p className="text-gray-400">San Francisco, CA</p>
+                <p className="text-gray-400">Kochi, Kerala, IN</p>
               </div>
             </div>
-          </div>
-
-          <div className="mt-8 flex items-center">
-            <div className="w-4 h-4 bg-green-500 rounded-full mr-3"></div>
-            <p className="text-sm text-gray-400">One spot available for Jan 2025</p>
           </div>
         </div>
 
@@ -77,13 +73,13 @@ const ContactForm = () => {
               <input
                 type="text"
                 placeholder="Full Name"
-                className="w-full p-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-blue-500"
+                className="w-full p-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-gray-500"
                 required
               />
               <input
                 type="email"
                 placeholder="Email Address"
-                className="w-full p-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-blue-500"
+                className="w-full p-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-gray-500"
                 required
               />
             </div>
@@ -92,20 +88,20 @@ const ContactForm = () => {
               <input
                 type="text"
                 placeholder="Company Name"
-                className="w-full p-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-blue-500"
+                className="w-full p-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-gray-500"
                 required
               />
               <input
                 type="url"
                 placeholder="Company Website"
-                className="w-full p-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-blue-500"
+                className="w-full p-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-gray-500"
                 required
               />
             </div>
 
             <textarea
               placeholder="Tell us about your project..."
-              className="w-full p-3 h-32 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-blue-500"
+              className="w-full p-3 h-32 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-gray-500"
               required
             ></textarea>
 
@@ -121,7 +117,7 @@ const ContactForm = () => {
                   <label key={idx} className="flex items-center space-x-2">
                     <input
                       type="checkbox"
-                      className="text-blue-500 bg-gray-800 border-gray-700 rounded focus:ring focus:ring-blue-500"
+                      className="text-gray-500 bg-gray-800 border-gray-700 rounded focus:ring focus:ring-gray-500"
                     />
                     <span>{service}</span>
                   </label>
@@ -133,16 +129,16 @@ const ContactForm = () => {
               <p className="text-sm font-semibold mb-3">Project Budget</p>
               <div className="grid md:grid-cols-2 gap-2">
                 {[
-                  { id: "5-10k", label: "5-10k" },
                   { id: "10-20k", label: "10-20k" },
                   { id: "20-30k", label: "20-30k" },
-                  { id: ">30k", label: ">30k" }
+                  { id: "30-50k", label: "30-50k" },
+                  { id: ">50", label: ">50" }
                 ].map((budget, idx) => (
                   <label key={idx} className="flex items-center space-x-2">
                     <input
                       type="radio"
                       name="budget"
-                      className="text-blue-500 bg-gray-800 border-gray-700 focus:ring focus:ring-blue-500"
+                      className="text-gray-500 bg-gray-800 border-gray-700 focus:ring focus:ring-gray-500"
                     />
                     <span>{budget.label}</span>
                   </label>
@@ -152,7 +148,7 @@ const ContactForm = () => {
 
             <button
               type="submit"
-              className="w-full p-3 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 transition mt-4"
+              className="w-full p-3 bg-gray-600 text-white font-bold rounded-md hover:bg-gray-700 transition mt-4"
             >
               Submit Project Inquiry
             </button>

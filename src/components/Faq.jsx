@@ -14,22 +14,31 @@ const FAQ = () => {
   };
 
   useEffect(() => {
-    gsap.to(".faq-right", {
-      scrollTrigger: {
-        trigger: ".faq-container",
-        start: "top top", // Pin when the container reaches the top
-        endTrigger: ".faq-content",
-        end: "bottom 15%", // End when faq-right's bottom reaches the top
-        pin: ".faq-left", // Pin the faq-left element
-        scrub: 1, // Smooth scrolling of faq-right
-        markers: false, // Disable scroll markers for clean UI
-      },
+    const updateEndValue = () => {
+      const screenWidth = window.innerWidth;
+      return screenWidth >= 768 ? "bottom 25%" : "bottom 15%"; // Adjust for md and above
+    };
+  
+    const trigger = ScrollTrigger.create({
+      trigger: ".faq-container",
+      start: "top top", // Pin when the container reaches the top
+      endTrigger: ".faq-content",
+      end: () => updateEndValue(), // Dynamic end value based on screen width
+      pin: ".faq-left", // Pin the faq-left element
+      scrub: 1, // Smooth scrolling of faq-right
+      markers: false, // Disable scroll markers for clean UI
     });
+  
+    // Cleanup
+    return () => {
+      trigger.kill(); // Kill this specific ScrollTrigger instance
+    };
   }, []);
+  
 
   return (
     <div className="bg-white min-h-screen md:min-h-[50vh] px-6 sm:px-10 lg:px-20 flex justify-center items-center">
-      <div className="faq-container flex flex-row justify-center gap-6 max-w-[80rem] py-20">
+      <div className="faq-container flex flex-row justify-center gap-6 max-w-[80rem] py-20 md:pt-40">
         {/* left Section (Heading) */}
         <div className="faq-left md:w-1/2">
           <h1 className="section-heading">FAQs</h1>

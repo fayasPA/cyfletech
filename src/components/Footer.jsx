@@ -76,17 +76,17 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row">
         {/* Left Column: Title and Email */}
         <div className="w-full md:w-1/2 mb-8 md:mb-0 flex flex-col justify-between">
-        <div className="mb-10 md:mb-0 flex space-x-6">
-        {socials.map((social) => (
-							<a
-								key={social.name}
-								href={social.link}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="hover:text-white text-borderColor text-3xl md:text-5xl transition-colors duration-500 ">
-								<span className="">{social.icon}</span>
-							</a>
-						))}
+          <div className="mb-10 md:mb-0 flex space-x-6">
+            {socials.map((social) => (
+              <a
+                key={social.name}
+                href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white text-borderColor text-3xl md:text-5xl transition-colors duration-500 ">
+                <span className="">{social.icon}</span>
+              </a>
+            ))}
 
           </div>
           <h2
@@ -98,15 +98,17 @@ const Footer = () => {
           </h2>
 
           <div ref={emailRef}>
-            <button
+            <a
+              href={`mailto:${companyEmail}`}
               className="text-zinc-400 px-6 py-3 rounded-xl 
-               hover:bg-zinc-800 transition-colors duration-300 text-xl md:text-base uppercase border border-dashed border-gray border-[#535556] bg-[#1d1f20]"
+      hover:bg-zinc-800 transition-colors duration-300 text-xl md:text-base uppercase border border-dashed border-gray border-[#535556] bg-[#1d1f20]"
             >
               {companyEmail}
-            </button>
+            </a>
           </div>
 
-          
+
+
         </div>
 
 

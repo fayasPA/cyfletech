@@ -1,48 +1,17 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { servicesData } from "../assets/js/data";
+import { NavLink, useLocation } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const services = [
-  {
-    id: 1,
-    title: "Full site Design + Webflow build",
-    description:
-      "Full custom Website design and Webflow development. I create with scalability and flexibility in mind, leveraging Webflow's CMS and Client-First, the most powerful Webflow Framework. Let's create a beautiful and functional web experience for your brand.",
-    imgSrc:
-      "https://cdn.prod.website-files.com/6405fcf125150a174dce6e85/65ff0c11e874940f02608521_full-design-plus-webflow-development-matteo.webp",
-    link: "/contact",
-  },
-  {
-    id: 2,
-    title: "Figma-to-Webflow",
-    description:
-      "Let's translate your design to reality Developing in Webflow. Fast, scalable, and pixel perfect.",
-    imgSrc:
-      "https://cdn.prod.website-files.com/6405fcf125150a174dce6e85/65ff07c3590d432567fc928d_figma-to-webflow-matteo.webp",
-    link: "/contact",
-  },
-  {
-    id: 3,
-    title: "5-days landing page",
-    description:
-      "Do you need a custom one-pager or a landing page? I'm here for you.",
-    imgSrc:
-      "https://cdn.prod.website-files.com/6405fcf125150a174dce6e85/65ff0c110e8860067f87e687_landing-page-matteo.webp",
-    link: "/contact",
-  },
-  {
-    id: 4,
-    title: "On-going monthly support",
-    description:
-      "Unlimited Design &/or Webflow requests, delivered one at a time.",
-    bullets: ["Unlimited requests", "Quick turnaround", "Personalized support"],
-    link: "/contact",
-  },
-];
 
 const Services = () => {
+  const location = useLocation();
+  const isServicePage = location.pathname === '/services';
+  const servicesToDisplay = isServicePage ? servicesData : servicesData.slice(0, 4);
+
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
 
@@ -72,8 +41,8 @@ const Services = () => {
       <div className="text-center mb-12">
         <h2 className="section-heading tracking-wide ">Services</h2>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-        {services.map((service, index) => (
+      <div className="grid grid-cols-1 sm:first:grid-cols-3 sm:grid-cols-2 lg:first:grid-cols-3 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        {servicesToDisplay.map((service, index) => (
           <div
             key={service.id}
             ref={(el) => (cardsRef.current[index] = el)}
@@ -116,6 +85,12 @@ const Services = () => {
           </div>
         ))}
       </div>
+
+      {!isServicePage &&
+          <div className='text-white text-center mt-16 uppercase text-base md:text-xl'>
+            <NavLink to='/services' className='border border-borderColor px-3 py-2 rounded-lg bg-selGray-200 hover:bg-selGray transition-colors duration-500' >see our services</NavLink>
+          </div>
+        }
     </section>
   );
 };

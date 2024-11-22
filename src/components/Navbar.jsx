@@ -1,15 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
-import { companyName } from '../utils/constants';
+import { companyName, navLists } from '../utils/constants';
 
-export const navLists = [
-    { name: 'Home', path: '/', order: 1 },
-    { name: 'Work', path: '/work', order: 2 },
-    { name: 'Blog', path: '/blog', order: 3 },
-    { name: 'About', path: '/about', order: 4 },
-    { name: 'Contact', path: '/contact', order: 5 },
-];
 
 const Navbar = () => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -69,7 +62,7 @@ const Navbar = () => {
     return (
         <nav
             className={`fixed top-0 left-0 w-full z-40 transition-all duration-1000 ease-in-out 
-                ${isScrolled ? 'backdrop-blur-sm ' : 'bg-transparent'}
+                ${isScrolled ? 'backdrop-blur-sm bg-selBlack/30' : 'bg-transparent'}
                 ${isMobileMenuOpen && !isScrolled ? 'bg-selRed/30 backdrop-blur-sm' : ''}
                 ${isMobileMenuOpen && isScrolled ? 'backdrop-blur-sm bg-black' : ''}
                 ${isNavbarVisible || isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}
