@@ -142,7 +142,7 @@ const Footer = () => {
               ref={textRef}
               className='leading-6 text-left md:text-right'
             >
-              ARE YOU AN AGENCY OR A FREELANCER? I ALWAYS WELCOME NEW OPPORTUNITIES TO EXCHANGE IDEAS AND TO EXPLORE COLLABORATIONS
+              ARE YOU AN AGENCY OR A FREELANCER? WE ALWAYS WELCOME NEW OPPORTUNITIES TO EXCHANGE IDEAS AND TO EXPLORE COLLABORATIONS
             </p>
           </div>
         </div>

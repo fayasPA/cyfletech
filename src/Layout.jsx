@@ -4,9 +4,14 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import LineLoader from './components/Loaders/LineLoader';
 import PageLoader from './components/Loaders/PageLoader';
+import ScrollToTop from './utils/ScrollToTop';
+import LocomotiveScroll from 'locomotive-scroll';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const Layout = () => {
   const [isLoaderVisible, setIsLoaderVisible] = useState(true);
+  const locomotiveScroll = new LocomotiveScroll();
 
   // Handle hiding the PageLoader once it's finished
   const handleLoaderComplete = () => {
@@ -15,9 +20,10 @@ const Layout = () => {
 
   return (
     <div className="bg-black your-main-container bg-contain md:bg-contain bg-center min-h-screen flex flex-col">
-      {/* Conditionally render the PageLoader */}
+        <ToastContainer toastClassName="custom-toast" />
+        {/* Conditionally render the PageLoader */}
       {isLoaderVisible && <PageLoader onComplete={handleLoaderComplete} />}
-      
+      <ScrollToTop />
       <div className="flex-grow md:pb-0">
         <Navbar />
         <main className="flex-grow">

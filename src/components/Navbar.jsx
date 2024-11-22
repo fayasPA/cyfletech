@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
-import { FiMenu, FiX } from 'react-icons/fi';
-import { companyName, navLists } from '../utils/constants';
-
+import React, { useState, useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
+import { FiMenu, FiX } from "react-icons/fi";
+import { companyName, navLists } from "../utils/constants";
+import { gsap } from "gsap";
 
 const Navbar = () => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,7 +10,9 @@ const Navbar = () => {
     const [lastScrollY, setLastScrollY] = useState(0);
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
     const scrollThreshold = 50;
-    const menuRef = useRef(null);
+
+    const menuRef = useRef(null); // Ref for the menu container
+    const menuAnimation = useRef(null); // Ref for the GSAP animation instance
 
     const handleScroll = () => {
         const currentScrollY = window.scrollY;
@@ -19,9 +21,7 @@ const Navbar = () => {
             setIsNavbarVisible(currentScrollY < lastScrollY); // Show on scroll up
         }
         setLastScrollY(currentScrollY);
-
-        // Change navbar background on scroll
-        setIsScrolled(currentScrollY > 50);
+        setIsScrolled(currentScrollY > 50); // Change navbar background on scroll
     };
 
     const debounce = (func, delay) => {
@@ -34,42 +34,49 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleScrollDebounced = debounce(handleScroll, 100);
-        window.addEventListener('scroll', handleScrollDebounced);
+        window.addEventListener("scroll", handleScrollDebounced);
 
         return () => {
-            window.removeEventListener('scroll', handleScrollDebounced);
+            window.removeEventListener("scroll", handleScrollDebounced);
         };
     }, [lastScrollY]);
 
+    // GSAP Animation for menu open/close
     useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (menuRef.current && !menuRef.current.contains(event.target)) {
-                setMobileMenuOpen(false);
+        if (menuRef.current) {
+            if (isMobileMenuOpen) {
+                menuAnimation.current = gsap.to(menuRef.current, {
+                    height: "100vh",
+                    duration: 0.5,
+                    ease: "power3.inOut",
+                });
+            } else {
+                menuAnimation.current = gsap.to(menuRef.current, {
+                    height: "0",
+                    duration: 0.5,
+                    ease: "power3.inOut",
+                });
             }
-        };
-
-        if (isMobileMenuOpen) {
-            document.addEventListener('mousedown', handleClickOutside);
-        } else {
-            document.removeEventListener('mousedown', handleClickOutside);
         }
-
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
     }, [isMobileMenuOpen]);
 
+    // Close menu when a NavLink is clicked
+    const handleNavLinkClick = () => {
+        setMobileMenuOpen(false);
+    };
+
     return (
+        // ${isNavbarVisible || isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"}
         <nav
             className={`fixed top-0 left-0 w-full z-40 transition-all duration-1000 ease-in-out 
-                ${isScrolled ? 'backdrop-blur-sm bg-selBlack/30' : 'bg-transparent'}
-                ${isMobileMenuOpen && !isScrolled ? 'bg-selRed/30 backdrop-blur-sm' : ''}
-                ${isMobileMenuOpen && isScrolled ? 'backdrop-blur-sm bg-black' : ''}
-                ${isNavbarVisible || isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}
+                ${!isMobileMenuOpen && isScrolled ? "backdrop-blur-sm bg-selBlack/30" : ""}
+                ${!isMobileMenuOpen && !isScrolled ? "bg-transparent" : ""}
+                ${isMobileMenuOpen && !isScrolled ? " backdrop-blur-sm bg-black/60" : ""}
+                ${isMobileMenuOpen && isScrolled ? "backdrop-blur-sm bg-black" : ""}
             `}
         >
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className={`flex ${isScrolled ? 'h-12 md:h-14' : 'h-16 md:h-16'} items-center justify-between transition-all duration-1000`}>
+                <div className={`flex ${isScrolled ? "h-12 md:h-14" : "h-16 md:h-16"} items-center justify-between transition-all duration-1000`}>
                     <div className="flex items-center text-center justify-center">
                         <NavLink to="/" className="flex items-center justify-center text-center uppercase">
                             <h1 className="company-font text-borderColor2 transition-all duration-700 ease-in-out font-light hover:font-bold">
@@ -78,12 +85,10 @@ const Navbar = () => {
                         </NavLink>
                     </div>
 
-                    <div className=" flex items-center">
+                    <div className="flex items-center">
                         <button
-                            onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+                            onClick={() => setMobileMenuOpen((prev) => !prev)}
                             className="text-white p-2 rounded-md focus:outline-none"
-                            aria-controls="mobile-menu"
-                            aria-expanded={isMobileMenuOpen}
                             aria-label="Toggle Navigation Menu"
                         >
                             {isMobileMenuOpen ? <FiX className="h-6 md:h-10 w-6 md:w-12" /> : <FiMenu className="h-6 md:h-10 w-6 md:w-12" />}
@@ -93,25 +98,24 @@ const Navbar = () => {
             </div>
 
             <div
-                className={`rounded-b-lg absolute top-full left-0 w-full transition-all duration-1000 ease-in-out transform ${isMobileMenuOpen ? "h-screen" : "max-h-0"} 
-                    overflow-hidden ${isScrolled ? "bg-black" : "bg-white/20 backdrop-blur-3xl"}`}
+                ref={menuRef}
+                className={`rounded-b-lg absolute top-full left-0 w-full overflow-hidden 
+                    ${isScrolled ? "bg-black" : "bg-selBlack/60 backdrop-blur-3xl"}`}
+                style={{ height: "0" }} // Initial height for GSAP animation
                 id="mobile-menu"
             >
                 {/* Main container */}
                 <div className="h-full w-full flex flex-col md:flex-row">
                     {/* Left section (Contact Info) */}
                     <div className="w-full md:w-1/3 md:h-full text-white flex flex-col justify-start items-start px-6 py-10 space-y-6">
-                        <p className="text-sm font-light">ONE SPOT AVAILABLE FOR JANUARY 2025</p>
-                        <button className="px-6 py-2 border border-white text-sm uppercase hover:bg-white hover:text-black transition">
+                        <NavLink to='/contact' onClick={handleNavLinkClick} className="px-6 py-2 border border-white text-sm uppercase hover:bg-white hover:text-black transition">
                             Contact
-                        </button>
+                        </NavLink>
                     </div>
 
                     {/* Right section (Nav Items) */}
-
                     <div className="w-full md:w-2/3 text-white px-4 md:px-10 flex items-center justify-end">
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 w-full p-4 md:p-10 h-full">
-                            {/* Navigation Items */}
                             {navLists.map((item, index) => (
                                 <NavLink
                                     key={item.order}
@@ -121,14 +125,13 @@ const Navbar = () => {
           ${index % 2 === 0 ? "text-left" : "text-right"} 
           ${index === navLists.length - 1 && navLists.length % 2 !== 0 ? "text-center col-span-2" : ""}`
                                     }
-                                    onClick={() => setMobileMenuOpen(false)}
+                                    onClick={handleNavLinkClick}
                                 >
                                     {item.name}
                                 </NavLink>
                             ))}
                         </div>
                     </div>
-
                 </div>
             </div>
         </nav>

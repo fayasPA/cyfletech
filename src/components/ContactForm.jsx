@@ -1,14 +1,80 @@
 import React, { useState } from "react";
 import { companyEmail, companyPhoneNo } from "../utils/constants";
+import { POST_ENQUIRY_FORM } from "../utils/urls";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const ContactForm = () => {
-  const [darkMode, setDarkMode] = useState(true);
+  const [formValues, setFormValues] = useState({
+    fullName: "",
+    email: "",
+    companyName: "",
+    companyWebsite: "",
+    projectDescription: "",
+    services: [],
+    budget: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
+  const handleCheckboxChange = (e) => {
+    const { value, checked } = e.target;
+    setFormValues((prevValues) => {
+      const updatedServices = checked
+        ? [...prevValues.services, value]
+        : prevValues.services.filter((service) => service !== value);
+
+      return { ...prevValues, services: updatedServices };
+    });
+  };
+
+  const handleRadioChange = (e) => {
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      budget: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    try {
+      await toast.promise(
+        axios.post(POST_ENQUIRY_FORM, new URLSearchParams({
+          ...formValues,
+        }).toString()),
+        {
+          pending: 'Submitting...',
+          success: 'Enquiry submitted successfully!',
+          error: 'Error submitting form',
+        }
+      );
+      // Optionally, reset form values or close modal after submission
+      setFormValues({
+        fullName: "",
+        email: "",
+        companyName: "",
+        companyWebsite: "",
+        projectDescription: "",
+        services: [],
+        budget: "",
+      });
+    } catch (error) {
+      console.error("Form submission error:", error);
+      toast.error("Submission error.");
+    }
+  };
+  
 
   return (
-    <div
-      className={`min-h-fit flex items-center justify-center p-6 ${
-        darkMode ? "bg-black text-white" : "bg-white text-black"
-      }`}
+<div
+      className={`min-h-fit flex items-center justify-center p-6 `}
     >
       <div className="w-full max-w-7xlxl mx-auto grid md:grid-cols-2 gap-1 bg-black rounded-2xl overflow-hidden shadow-2xl">
         {/* Left Side - Contact Information */}
@@ -59,103 +125,124 @@ const ContactForm = () => {
         <div className="p-10 bg-black">
           <div className="absolute top-4 right-4">
             <button 
-              onClick={() => setDarkMode(!darkMode)}
               className="px-4 py-2 bg-black text-white rounded-md hover:bg-black transition"
             >
-              {darkMode ? "" : "Dark Mode"}
             </button>
           </div>
 
           <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
           
-          <form className="space-y-4">
-            <div className="grid md:grid-cols-2 gap-4">
+         
+    <form onSubmit={handleSubmit} className="space-y-4 text-white">
+      <div className="grid md:grid-cols-2 gap-4">
+        <input
+          type="text"
+          name="fullName"
+          value={formValues.fullName}
+          onChange={handleChange}
+          placeholder="Full Name"
+          className="w-full p-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-gray-500"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          value={formValues.email}
+          onChange={handleChange}
+          placeholder="Email Address"
+          className="w-full p-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-gray-500"
+          required
+        />
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-4">
+        <input
+          type="text"
+          name="companyName"
+          value={formValues.companyName}
+          onChange={handleChange}
+          placeholder="Company Name"
+          className="w-full p-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-gray-500"
+          
+        />
+        <input
+          type="url"
+          name="companyWebsite"
+          value={formValues.companyWebsite}
+          onChange={handleChange}
+          placeholder="Company Website"
+          className="w-full p-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-gray-500"
+          
+        />
+      </div>
+
+      <textarea
+        name="projectDescription"
+        value={formValues.projectDescription}
+        onChange={handleChange}
+        placeholder="Tell us about your project..."
+        className="w-full p-3 h-32 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-gray-500"
+        
+      ></textarea>
+
+      <div>
+        <p className="text-sm font-semibold mb-3">Services Needed</p>
+        <div className="grid md:grid-cols-2 gap-2">
+          {[
+            "Full site Design + Development",
+            "Figma-to-Full Stack",
+            "Landing Page Build",
+            "Monthly Support",
+          ].map((service, idx) => (
+            <label key={idx} className="flex items-center space-x-2">
               <input
-                type="text"
-                placeholder="Full Name"
-                className="w-full p-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-gray-500"
-                required
+                type="checkbox"
+                value={service}
+                checked={formValues.services.includes(service)}
+                onChange={handleCheckboxChange}
+                className="text-gray-500 bg-gray-800 border-gray-700 rounded focus:ring focus:ring-gray-500"
               />
+              <span>{service}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <p className="text-sm font-semibold mb-3">Project Budget (in Rs)</p>
+        <div className="grid md:grid-cols-2 gap-2">
+          {[
+            { id: "10-20k", label: "10-20k" },
+            { id: "20-30k", label: "20-30k" },
+            { id: "30-50k", label: "30-50k" },
+            { id: ">50", label: ">50" },
+          ].map((budget, idx) => (
+            <label key={idx} className="flex items-center space-x-2">
               <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full p-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-gray-500"
-                required
+                type="radio"
+                name="budget"
+                value={budget.id}
+                checked={formValues.budget === budget.id}
+                onChange={handleRadioChange}
+                className="text-gray-500 bg-gray-800 border-gray-700 focus:ring focus:ring-gray-500"
               />
-            </div>
+              <span>{budget.label}</span>
+            </label>
+          ))}
+        </div>
+      </div>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Company Name"
-                className="w-full p-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-gray-500"
-                required
-              />
-              <input
-                type="url"
-                placeholder="Company Website"
-                className="w-full p-3 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-gray-500"
-                required
-              />
-            </div>
-
-            <textarea
-              placeholder="Tell us about your project..."
-              className="w-full p-3 h-32 bg-gray-800 border border-gray-700 rounded-md text-white placeholder-gray-400 focus:ring focus:ring-gray-500"
-              required
-            ></textarea>
-
-            <div>
-              <p className="text-sm font-semibold mb-3">Services Needed</p>
-              <div className="grid md:grid-cols-2 gap-2">
-                {[
-                  "Full site Design + Webflow",
-                  "Figma-to-Webflow Dev",
-                  "Landing Page Build",
-                  "Monthly Support"
-                ].map((service, idx) => (
-                  <label key={idx} className="flex items-center space-x-2">
-                    <input
-                      type="checkbox"
-                      className="text-gray-500 bg-gray-800 border-gray-700 rounded focus:ring focus:ring-gray-500"
-                    />
-                    <span>{service}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <p className="text-sm font-semibold mb-3">Project Budget</p>
-              <div className="grid md:grid-cols-2 gap-2">
-                {[
-                  { id: "10-20k", label: "10-20k" },
-                  { id: "20-30k", label: "20-30k" },
-                  { id: "30-50k", label: "30-50k" },
-                  { id: ">50", label: ">50" }
-                ].map((budget, idx) => (
-                  <label key={idx} className="flex items-center space-x-2">
-                    <input
-                      type="radio"
-                      name="budget"
-                      className="text-gray-500 bg-gray-800 border-gray-700 focus:ring focus:ring-gray-500"
-                    />
-                    <span>{budget.label}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full p-3 bg-gray-600 text-white font-bold rounded-md hover:bg-gray-700 transition mt-4"
-            >
-              Submit Project Inquiry
-            </button>
-          </form>
+      <button
+        type="submit"
+        className="w-full p-3 bg-white text-black font-bold rounded-md hover:bg-gray-700 transition mt-4 text-xl md:text-4xl"
+      >
+        Submit Project Inquiry
+      </button>
+    </form>
         </div>
       </div>
     </div>
+    
   );
 };
 

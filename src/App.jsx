@@ -8,6 +8,7 @@ import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import ServicesPage from './pages/ServicesPage';
 import OurTeam from './pages/OurTeam';
+import LocomotiveScroll from 'locomotive-scroll';
 
 
 function App() {
