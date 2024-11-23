@@ -53,7 +53,7 @@ const OurTeam = () => {
                             <FaUser className="w-32 h-32 rounded-full mx-auto mb-4 text-neutral-500 border border-neutral-500 p-4" />
                         )}
 
-                        <h3 className="text-2xl font-serif font-bold mb-4 tracking-wide text-center">
+                        <h3 className="text-2xl font-bold mb-4 tracking-wide text-center">
                             {member.name}
                         </h3>
                         <p className="text-gray-300 text-sm leading-relaxed mb-6">
@@ -64,7 +64,7 @@ const OurTeam = () => {
                                 href={member.linkedIn}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="block w-full text-center mt-4 py-2 border border-neutral-500 text-white font-semibold rounded-md hover:bg-white hover:text-black transition-all duration-300"
+                                className="block w-full text-center mt-4 py-2 border border-neutral-500 text-green font-semibold rounded-md hover:bg-white hover:text-black transition-all duration-300"
                             >
                                 Connect on LinkedIn
                             </a>

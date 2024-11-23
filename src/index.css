@@ -6,8 +6,9 @@
 /* Hide the native scrollbar but keep functionality */
 body {
     overflow-x: hidden;
-    /* font-family: "Doto", sans-serif; */
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Doto", sans-serif;
+    font-weight: 900;
+    /* font-family: "Cormorant Garamond", serif; */
     /* font-family: "Karla", serif; */
 
   }
@@ -41,7 +42,8 @@ body {
 
 
   .section-heading{
-    @apply text-5xl md:text-7xl font-extralight;
+    @apply text-4xl md:text-7xl font-bold;
+    /* @apply text-5xl md:text-7xl font-extralight underline decoration-[#D3D3D3] decoration-2 decoration-dashed; */
   }
   
   [data-scroll-container] {

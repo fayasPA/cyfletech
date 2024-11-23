@@ -53,10 +53,10 @@ const FAQ = () => {
                 className={`faq-section transition-all duration-300 border-b pb-2 last:border-none overflow-hidden group hover:border-none`}
               >
                 <button
-                  className="mt-1 md:mt-2 font-karla w-full flex justify-between items-center text-2xl md:text-3xl outline-none hover:px-2 md:hover:px-4  hover:bg-gray-200 hover:rounded-xl transition-all duration-300"
+                  className="mt-1 md:mt-2 w-full flex justify-between items-center text-2xl md:text-3xl outline-none hover:px-2 md:hover:px-4  hover:bg-gray-200 hover:rounded-xl transition-all duration-300"
                   onClick={() => toggleFAQ(index)}
                 >
-                  <span className="text-left font-normal">{faq.question}</span>
+                  <span className="text-left font-bold">{faq.question}</span>
 
                   <span className="m-2 border border-selGray p-1 text-black flex items-center justify-center w-8 h-6 md:w-12 md:h-8 ml-2 rounded-full bg-gray-200 group-hover:bg-white transition-all duration-500 ease-in-out">
                     {activeIndex === index ? (

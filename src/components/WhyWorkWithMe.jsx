@@ -43,22 +43,24 @@ const WhyWorkWithMe = () => {
         className="w-full md:w-1/2 h-auto md:h-screen flex flex-col justify-center"
       >
         <div className="md:w-[40vw] md:h-[40vw] overflow-hidden flex justify-center items-center mx-auto">
-          <span className="text-3xl md:text-8xl font-extralight py-10">
+          <span className="section-heading py-10">
             Why work with us?
           </span>
         </div>
 
         {/* Mobile Content */}
-        <div className="block md:hidden w-4/5 mx-auto space-y-5">
+        <div className="block md:hidden md:w-4/5 mx-5 md:mx-auto space-y-5">
           {whyWorkWithUsData.map((data) => (
             <div
               key={data.id}
               className="bg-selGray-light rounded-lg shadow-md border border-borderColor3 p-6"
             >
-              <h1 className="text-5xl font-bold text-black mb-4">{data.id}.</h1>
-              <h2 className="text-3xl font-semibold text-gray-800 mb-2">
+              <div className="flex">
+              <h1 className="text-xl md:text-5xl font-bold text-selRedDark">{data.id}.</h1>
+              <h2 className="text-xl md:text-3xl font-bold text-selRedDark mb-2">
                 {data.header}
               </h2>
+              </div>
               <p className="text-lg text-gray-600 leading-relaxed">
                 {data.description}
               </p>
@@ -76,7 +78,7 @@ const WhyWorkWithMe = () => {
               ref={(el) => (desktopContentSectionsRef.current[index] = el)}
               className="min-h-screen flex flex-col justify-center"
             >
-              <h1 className="text-4xl md:text-6xl font-bold">
+              <h1 className="text-4xl md:text-6xl font-bold text-red-700">
                 {data.id}. {data.header}
               </h1>
               <p className="text-lg md:text-2xl mt-4">{data.description}</p>

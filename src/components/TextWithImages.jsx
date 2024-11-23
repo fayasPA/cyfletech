@@ -45,41 +45,14 @@ const TextWithImages = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center min-h-screen md:px-4 text-center">
-      <div className="text-white font-serif">
-        <h1 className="text-4xl md:text-5xl leading-normal md:leading-loose mx-10 md:mx-20">
-          Hi, we're
-          {/* <span className="inline-block hover-scale transition-all">
-            <img
-              src="/src/assets/images/premiersteel.png"
-              alt=""
-              className="w-12 h-8 md:w-16 md:h-16 rounded-sm object-cover inline-block"
-            />
-          </span> */}
+    <div className="flex items-center justify-center md:min-h-screen md:px-4 text-left md:text-center pt-10 md:pt-0">
+      <div className="text-borderColor uppercase">
+        <h1 className="text-xl md:text-3xl lg:text-5xl leading-normal md:leading-loose ml-3 mx-0 md:mx-20 font-light">
+        Hi,<br className='hidden md:block' /> we're
           {' '}
-          Cyfletech,
-            {/* <span className="inline-block hover-scale transition-all">
-            <img
-              src="/src/assets/images/premiersteel.png"
-              alt=""
-              className="w-12 h-8 md:w-16 md:h-16 rounded-sm object-cover inline-block"
-            />
-          </span> */}
-          {' '}
-          Full Stack web designers & developers working on
-           
-          crafting visually stunning
-          {' '}
-          <span className="inline-block hover-scale transition-all">
-            <img
-              src={textSectionImg}
-              alt=""
-              className="w-12 h-8 md:w-16 md:h-16 rounded-sm object-cover inline-block"
-            />
-          </span>
-          {' '}
-           and highly functional websites that elevate your brand.
-        </h1>
+        <span className='text-selRedDark font-semibold'>Cyfletech</span>
+          .<br />
+        we make tech work like magic Whether it’s <span className='text-green'>full-stack web development</span>, lightning-fast <span className='text-selOrange'>app solutions</span>, chatbots that actually get you, or <span className='text-selBlue'>AI tools</span> that don’t require a PhD to understand, we’ve got it all. Oh, and we turn data into <span className='text-selYellow'>business insights</span> so sharp, you'll feel like a genius. Let’s make something awesome together!</h1>
       </div>
     </div>
   );

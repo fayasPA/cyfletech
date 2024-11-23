@@ -1,5 +1,8 @@
 import Logo from '/logo.png'
-import homeBg from '../assets/images/home_bg.jpg'
+// import homeBg from '../assets/images/home_bg.jpg'
+import homeBg from '../assets/images/home1.jpg'
+// import homeBg from '../assets/images/home_bg.jpg'
+// import homeBg from '../assets/images/home_bg.jpg'
 import textSectionImage from '../assets/images/luxmoto.png'
 
 

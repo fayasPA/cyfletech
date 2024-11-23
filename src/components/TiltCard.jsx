@@ -63,8 +63,8 @@ const TiltEffect = ({ project }) => {
 
             {/* Name and Website Button */}
             <div className="mt-2 md:mt-4 text-center flex flex-col md:flex-row justify-between items-start md:items-center">
-                <div className="text-white text-3xl md:text-4xl font-semibold">{project.title}</div>
-                    <button className="mt-2 px-2 md:px-4 py-1 md:py-2 bg-selGray text-white text-xs rounded-md md:rounded-lg shadow-lg transition-all uppercase border border-borderColor">
+                <div className="text-white text-lg md:text-2xl font-extralight">{project.title}</div>
+                    <button className="mt-2 px-2 md:px-4 py-1 md:py-2 text-green text-xs rounded-md md:rounded-lg shadow-lg transition-all uppercase border border-selGray">
                         Website
                     </button>
             </div>

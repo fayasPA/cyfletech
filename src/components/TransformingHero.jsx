@@ -39,12 +39,6 @@ const TransformingHero = () => {
         ease: 'power2.inOut',
         duration: 1.5,
       })
-        .to(text, {
-          opacity: 1, // Ensure text is visible initially
-          y: '-10%', // Move text to the top half of the screen as the user scrolls
-          ease: 'power2.out',
-          duration: 1.5,
-        });
     } else {
       // Scroll animation for larger screens (md and above)
       tl.to(image, {
@@ -52,7 +46,7 @@ const TransformingHero = () => {
         height: '70vh', // Adjusts the height of the image
         top: '5rem', // Repositions the image
         right: '2rem', // Moves it closer to the center
-        borderRadius: '2rem', // Adds rounded corners
+        borderRadius: '5%', // Adds rounded corners
         ease: 'power2.inOut', // Smooth easing
         duration: 1.5, // Animation duration
       });
@@ -78,36 +72,39 @@ const TransformingHero = () => {
       {/* Text Content */}
       <div
         ref={textRef}
-        className="absolute top-[30%] md:top-[50%] left-16 transform -translate-y-1/2 text-white z-10 w-1/2 opacity-100" // Set opacity to 100 here to make the text visible initially
+        className="absolute inset-0 flex items-center md:justify-start  md:pl-20 text-borderColor z-10 md:w-1/2 h-1/2 md:h-full" // Center the content and make it take half the width
       >
-        <h1 className="font-serif text-2xl md:text-6xl mb-6">
-          End to End<br />
-          Business<br />
-          Solutions
-        </h1>
-        <p className="text-gray-400 text-lg mb-8">
-          FULL STACK DEVELOPMENT EXPERTS<br />
-          HELPING YOU BUILD BEAUTIFUL AND<br />
-          SCALABLE WEBSITE EXPERIENCES
-        </p>
-        <NavLink to='/contact' className="flex items-center space-x-2 text-[#00FF85] hover:text-white transition-colors">
-          <div className="w-3 h-3 rounded-full bg-current"></div>
-          <span>CONTACT</span>
-        </NavLink>
+        <div className='mt-5 sm:mt-0 ml-4 sm:ml-0 uppercase border-[0.5px] border-selGray rounded-md border-dashed p-4'>
+          <h1 className="text-[1.5rem] sm:text-2xl md:text-6xl mb-3 md:mb-6">
+            End to End<br />
+            Business
+            Solutions
+          </h1>
+          <p className="text-selGray text-sm md:text-lg">
+            FULL STACK DEVELOPMENT EXPERTS<br className='block md:hidden' />
+            HELPING YOU BUILD BEAUTIFUL AND<br className='block md:hidden' />
+            SCALABLE WEBSITE EXPERIENCES
+          </p>
+          {/* <NavLink to='/contact' className="flex items-center space-x-2 text-[#00FF85] hover:text-white transition-colors">
+            <div className="w-3 h-3 rounded-full bg-current"></div>
+            <span>CONTACT</span>
+          </NavLink> */}
+        </div>
       </div>
 
       {/* Image Container */}
       <div
         ref={imageRef}
-        className="absolute top-0 right-0 w-full h-screen bg-cover bg-center"
+        className="absolute top-0 right-0 w-full h-screen bg-cover bg-center overflow-hidden"
       >
         <img
-          src={homeHeroImg}
+          src="https://images.unsplash.com/photo-1642697283420-194938fcc339?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          // src={homeHeroImg}
           alt="Designer"
           className="w-full h-full object-cover rounded-xl"
         />
         {/* Overlay for better readability */}
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-[0.09rem] md:backdrop-blur-[.2rem]"></div>
       </div>
     </div>
   );

@@ -23,9 +23,10 @@ const Layout = () => {
         <ToastContainer toastClassName="custom-toast" />
         {/* Conditionally render the PageLoader */}
       {isLoaderVisible && <PageLoader onComplete={handleLoaderComplete} />}
-        <FloatingBtn />
+        {/* <FloatingBtn /> */}
         <ScrollToTop />
-      <div className="flex-grow md:pb-0">
+        <div className="background-overlay"></div>
+        <div className="content">
         <Navbar />
         <main className="flex-grow">
           <Outlet />

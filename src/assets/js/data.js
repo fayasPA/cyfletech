@@ -283,7 +283,7 @@ export const servicesData = [
     },
     {
         id: 4,
-        name: "Hafiz Azeez",
+        name: "Muhammed Hafiz",
         picture: Hafiz,  // Replace with correct image path
         bio: "Hafiz is a web designer with expertise in Figma and user experience design. He ensures that every project has a polished and professional look.",
         linkedIn: "https://www.linkedin.com/in/imhaafz/",

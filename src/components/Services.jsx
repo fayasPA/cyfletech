@@ -48,7 +48,7 @@ const Services = () => {
             ref={(el) => (cardsRef.current[index] = el)}
             className="relative p-6 bg-black/80 border-2 border-neutral-600 rounded-lg shadow-lg hover:scale-105 hover:border-white hover:shadow-md transition-all duration-300"
           >
-            <h3 className="text-2xl font-serif font-bold mb-4 tracking-wide text-center">
+            <h3 className="text-2xl font-bold mb-4 tracking-wide text-center">
               {service.title}
             </h3>
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
@@ -78,7 +78,7 @@ const Services = () => {
             )}
             <a
               href={service.link}
-              className="block w-full text-center mt-4 py-2 border border-neutral-500 text-white font-semibold rounded-md hover:bg-white hover:text-black transition-all duration-300"
+              className="block w-full text-center mt-4 py-2 border border-neutral-500 text-green font-semibold rounded-md hover:bg-white hover:text-black transition-all duration-300"
             >
               Get in touch
             </a>

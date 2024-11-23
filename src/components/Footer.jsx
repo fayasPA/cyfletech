@@ -76,7 +76,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row">
         {/* Left Column: Title and Email */}
         <div className="w-full md:w-1/2 mb-8 md:mb-0 flex flex-col justify-between">
-          <div className="mb-10 md:mb-0 flex space-x-6">
+          <div className="my-10 md:my-0 flex space-x-6 justify-center md:justify-start md:mb-5">
             {socials.map((social) => (
               <a
                 key={social.name}
@@ -91,17 +91,17 @@ const Footer = () => {
           </div>
           <h2
             ref={titleRef}
-            className="text-4xl md:text-6xl lg:text-7xl font-light mb-16 leading-tight text-white"
+            className="text-xl md:text-6xl lg:text-7xl font-light mb-10 md:mb-16 leading-tight text-gray-300 text-center md:text-start"
           >
             Do you want to start<br />
             a project together?
           </h2>
 
-          <div ref={emailRef}>
+          <div ref={emailRef} className='flex justify-center md:justify-start'>
             <a
               href={`mailto:${companyEmail}`}
-              className="text-zinc-400 px-6 py-3 rounded-xl 
-      hover:bg-zinc-800 transition-colors duration-300 text-xl md:text-base uppercase border border-dashed border-gray border-[#535556] bg-[#1d1f20]"
+              className="px-2 md:px-6 py-1 md:py-3 rounded-md md:rounded-xl text-green
+      hover:bg-white hover:text-black transition-colors duration-300 text-sm md:text-base uppercase border border-dashed border-selGray"
             >
               {companyEmail}
             </a>
@@ -113,9 +113,9 @@ const Footer = () => {
 
 
         {/* Right Column: NavLists and Collaboration Text */}
-        <div className="w-full md:w-1/2 flex flex-row md:flex-col items-start">
+        <div className="w-full md:w-1/2 flex flex-row md:flex-col items-start text-selGray">
           {/* NavLists */}
-          <div className="space-y-5 text-xl md:text-2xl uppercase mb-16 md:mr-12 w-full">
+          <div className="space-y-2 md:space-y-5  text-lg md:text-2xl uppercase mb-16 md:mr-12 w-full">
             {navLists.map((item, index) => (
               <NavLink
                 key={item.order}
@@ -137,7 +137,7 @@ const Footer = () => {
           </div>
 
           {/* Collaboration Text */}
-          <div className="text-borderColor line text-base md:text-xl max-w-48 md:max-w-xl ml-auto text-right">
+          <div className="line text-base md:text-xl max-w-48 md:max-w-xl ml-auto text-right">
             <p
               ref={textRef}
               className='leading-6 text-left md:text-right'
