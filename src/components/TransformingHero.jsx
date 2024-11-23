@@ -13,57 +13,76 @@ const TransformingHero = () => {
   const imageRef = useRef(null);
   const textRef = useRef(null);
 
-  // useEffect(() => {
-  //   const container = containerRef.current;
-  //   const image = imageRef.current;
-  //   const text = textRef.current;
+  useEffect(() => {
+    const container = containerRef.current;
+    const image = imageRef.current;
+    const text = textRef.current;
 
-  //   // Set up GSAP timeline with ScrollTrigger for the image and text
-  //   const tl = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: container, // The element that triggers the animation
-  //       start: 'top top', // Start animation when the container hits the top of the viewport
-  //       end: '200% top', // End animation when the container's bottom reaches the top
-  //       scrub: 1, // Smooth scrubbing effect
-  //       pin: true, // Pins the section during scroll
-  //       anticipatePin: 1, // Optimizes pinning performance
-  //       markers: false, // Enable for debugging
-  //     },
-  //   });
-
-  //   // Scroll animation for small screens (below 768px)
-  //   if (window.innerWidth < 768) {
-  //     tl.to(image, {
-  //       width: '100%', // Full width on scroll
-  //       height: '50vh', // Adjust height for small screens
-  //       top: '50%', // Position the image on the bottom half of the screen
-  //       ease: 'power2.inOut',
-  //       duration: 1.5,
-  //     })
-  //   } else {
-  //     // Scroll animation for larger screens (md and above)
-  //     tl.to(image, {
-  //       width: '50%', // Shrinks the image width
-  //       height: '70vh', // Adjusts the height of the image
-  //       top: '5rem', // Repositions the image
-  //       right: '2rem', // Moves it closer to the center
-  //       borderRadius: '5%', // Adds rounded corners
-  //       ease: 'power2.inOut', // Smooth easing
-  //       duration: 1.5, // Animation duration
-  //     });
-
-  //     tl.to(text, {
-  //       opacity: 1, // Ensure text appears normally for larger screens
-  //       ease: 'power2.out',
-  //       duration: 1.5,
-  //     });
-  //   }
-
-  //   // Cleanup function
-  //   return () => {
-  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  //   };
-  // }, []);
+    const isMobile = window.innerWidth < 768;
+  
+    // Set up GSAP timeline with ScrollTrigger for the image and text
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container, // The element that triggers the animation
+        start: 'top top', // Start animation when the container hits the top of the viewport
+        end: isMobile ? '50% top' : '100% top', // End animation when the container's bottom reaches the top
+        scrub: 1, // Smooth scrubbing effect
+        pin: true, // Pins the section during scroll
+        anticipatePin: 1, // Optimizes pinning performance
+        markers: false, // Enable for debugging
+      },
+    });
+  
+    // Scroll animation for small screens (below 768px)
+    if (window.innerWidth < 768) {
+      tl.fromTo(image, 
+        {
+          filter: 'blur(5px)', // Start with a blur of 5px
+        },
+        {
+          filter: 'blur(0px)', // End with a blur of 0px
+          width: '100%', // Full width on scroll
+          height: '60vh', // Adjust height for small screens
+          top: '45%', // Position the image on the bottom half of the screen
+          ease: 'power2.inOut',
+          duration: 1.5,
+        })
+        .to(text, {
+          height: '50vh', // Adjust height for small screens
+          opacity: 1, // Ensure text appears normally for larger screens
+          ease: 'power2.out',
+          duration: 1.5,
+        }, 0);
+    } else {
+      // Scroll animation for larger screens (md and above)
+      tl.fromTo(image, 
+        {
+          // filter: 'blur(5px)', // Start with a blur of 5px
+        },
+        {
+          filter: 'blur(0px)', // End with a blur of 0px
+          width: '50%', // Shrinks the image width
+          height: '80vh', // Adjusts the height of the image
+          top: '5rem', // Repositions the image
+          right: '2rem', // Moves it closer to the center
+          borderRadius: '5%', // Adds rounded corners
+          ease: 'power2.inOut', // Smooth easing
+          duration: 1.5, // Animation duration
+        })
+        .to(text, {
+          y: -100,
+          opacity: 1, // Ensure text appears normally for larger screens
+          ease: 'power2.out',
+          duration: 1.5,
+        }, 0);
+    }
+  
+    // Cleanup function
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+  
 
   return (
     <div
@@ -73,10 +92,10 @@ const TransformingHero = () => {
       {/* Text Content */}
       <div
         ref={textRef}
-        className="absolute inset-0 flex flex-col md:items-center justify-center  text-borderColor z-10 md:w-1/2 h-1/2 md:h-full" // Center the content and make it take half the width
+        className="absolute inset-0 flex flex-col md:items-center justify-center  text-borderColor z-10 w-fit md:w-1/2 h-full" // Center the content and make it take half the width
       >
         <div>
-          <div className='mt-5 sm:mt-0 ml-4 sm:ml-0 uppercase border-[0.5px] border-selGray rounded-md border-dashed p-4'>
+          <div className='ml-4 sm:ml-0 uppercase border-[0.5px] border-selGray rounded-md border-dashed p-4'>
             <h1 className="text-[1.5rem] sm:text-2xl md:text-6xl mb-3 md:mb-6">
               End to End<br />
               Business
@@ -147,7 +166,7 @@ const TransformingHero = () => {
           // src="https://images.unsplash.com/photo-1642697283420-194938fcc339?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           src={homeHeroImg}
           alt="Designer"
-          className="w-full h-full object-fill rounded-xl"
+          className="w-full h-full rounded-xl object-fill"
         />
         {/* Overlay for better readability */}
         <div className="absolute inset-0 bg-black/60"></div>
