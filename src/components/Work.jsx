@@ -44,7 +44,7 @@ const Work = () => {
 
   return (
     <section className="w-full min-h-screen md:pb-10 work-container overflow-x-hidden">
-      <div className=" mx-auto px-4 py-20">
+      <div className=" mx-auto px-4 py-20 flex flex-col justify-start items-center">
         {/* Heading */}
         <h1
           // ref={headingRef}
