@@ -46,7 +46,7 @@ const TextWithImages = () => {
 
   return (
     <div className="flex items-center justify-center md:min-h-screen md:px-4 text-left md:text-center pt-10 md:pt-0">
-      <div className="text-borderColor uppercase">
+      <div className="text-borderColor2 uppercase">
         <h1 className="text-xl md:text-3xl lg:text-5xl leading-normal md:leading-loose ml-3 mx-0 md:mx-20 font-light">
         Hi,<br className='hidden md:block' /> we're
           {' '}

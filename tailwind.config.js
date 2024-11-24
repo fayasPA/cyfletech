@@ -25,7 +25,6 @@ export default {
         selRed: "#FFB6C1",
         selOrange: "#FFD580",
         green: "#32de84", 
-        selRed: "#9C2327",
         selBlack: "#101010",
         oldBorderColor: "#ffffff59",
         borderColor: "#908f8f",

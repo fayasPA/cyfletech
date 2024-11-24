@@ -5,15 +5,10 @@ import LuxemotoImage from "../../assets/images/luxmoto.png";
 import PremiersteelsImage from "../../assets/images/premiersteel.png";
 import AltcoImage from "../../assets/images/altco.png";
 import FizziImage from "../../assets/images/fizzi.png";
-// import Kiran from '../../assets/images/kiran.jpeg'
-// import Kiran from '../../assets/images/kiranCartoon.png'
-import Kiran from '../../assets/images/kiranCartoon2.jpg'
-// import Hafiz from '../../assets/images/hafiz.jpeg'
-// import Hafiz from '../../assets/images/hafizCartoon.png'
-import Hafiz from '../../assets/images/hafizcartoon1.jpeg'
-// import Hafiz from '../../assets/images/hafizcartoon2.png'
-// import Hafiz from '../../assets/images/hafizcartoon3.jpg'
-import Fayas from '../../assets/images/fayasCartoon.png'
+import Kiran from '../../assets/images/kiran.jpeg'
+import Hafiz from '../../assets/images/hafiz.jpeg'
+import Fayas from '../../assets/images/dp.jpg'
+import Varun from '../../assets/images/varun.jpeg'
 import { Code, Zap, Monitor, Gauge, BarChart3, Layout } from 'lucide-react';
 
 import { FaGithub, FaLinkedinIn, FaInstagram, FaYoutube, FaLaptopCode, FaBriefcase, FaWhatsapp } from "react-icons/fa";
@@ -273,6 +268,8 @@ export const servicesData = [
         id: 2,
         name: "Varun MS",
         bio: "Varun specializes in Large Language Models (LLMs), artificial intelligence, and chatbot development. His innovative approach drives our AI-powered solutions.",
+        picture: Varun,  // Replace with correct image path
+        linkedIn: "https://www.linkedin.com/in/varun-m-s-ai-developer",
     },
     {
         id: 3,

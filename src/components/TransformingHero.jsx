@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { NavLink } from 'react-router-dom';
-import { companyEmail, companyInsta, companyPhoneNo, homeHeroImg } from '../utils/constants';
+import { companyEmail, companyInsta, companyPhoneNo } from '../utils/constants';
 import { FaEnvelope, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { FaAnglesRight } from 'react-icons/fa6';
 
@@ -114,10 +114,10 @@ const TransformingHero = () => {
           </div>
 
 
-          <div className='ml-4 sm:ml-0 mt-5'>
-            <button className="relative flex items-center justify-center w-fit px-2 py-1 md:py-1 bg-green text-black hover:bg-black hover:scale-110 rounded-sm overflow-hidden group transition-all duration-700 cursor-pointer">
+          <div className='ml-4 sm:ml-0 mt-2 md:mt-5'>
+            <button className="relative flex items-center justify-center w-fit px-1 md:px-2 md:py-1 bg-green text-black hover:bg-black hover:scale-110 rounded-sm md:rounded-md overflow-hidden group transition-all duration-700 cursor-pointer">
               {/* Text */}
-              <span className="flex text-sm md:text-xl font-bold transition-opacity duration-300 group-hover:opacity-0 uppercase">
+              <span className="flex text-[.8rem] md:text-lg font-bold transition-opacity duration-300 group-hover:opacity-0 uppercase">
                 Connect <span className='animate-pulse font-extrabold flex items-center ml-1'><FaAnglesRight /> </span>
               </span>
 
@@ -165,7 +165,6 @@ const TransformingHero = () => {
       >
         <img
           src="https://images.unsplash.com/photo-1642697283420-194938fcc339?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          // src={homeHeroImg}
           alt="Designer"
           className="w-full h-full rounded-xl object-cover"
         />

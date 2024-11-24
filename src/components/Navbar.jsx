@@ -127,7 +127,8 @@ const Navbar = () => {
                                     }
                                     onClick={handleNavLinkClick}
                                 >
-                                    {item.name}
+                                    <span className="hover:text-green">{item.name}</span>
+                                    
                                 </NavLink>
                             ))}
                         </div>

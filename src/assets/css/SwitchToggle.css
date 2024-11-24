@@ -94,6 +94,13 @@
     border-radius: 5px;
     width: 32px;
   }
+
+  .switch:hover input:checked + .wrapper .row-vertical .middle-dot {
+    background-color: #FF0000;
+  }
+  .switch:hover input:checked + .wrapper .row-horizontal .middle-dot-horizontal {
+    background-color: #FF0000;
+  }
   
 
 
