@@ -14,57 +14,27 @@ const Work = () => {
   const isWorkPage = location.pathname === '/work';
   const projectsToDisplay = isWorkPage ? projectsData : projectsData.slice(0, 4);
 
-  const scrollContainerRef = useRef(null);
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-
-    // GSAP horizontal scroll animation for below md
-    if (window.innerWidth < 768) {
-      gsap.to(container, {
-        x: () => -(container.scrollWidth - document.documentElement.clientWidth) + 'px',
-        xPercent: -20,  // Scroll horizontally
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.work-container',
-          start: 'top top',
-          end: 'bottom top', // Set the end of the scroll animation
-          scrub: 1, // Sync the animation with the scroll
-          pin: '.work-container', // Pin the container while scrolling
-          markers: false, // Disable markers for debugging
-        },
-      });
-    }
-
-    // Cleanup ScrollTrigger
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
-
   return (
-    <section className="w-full min-h-screen md:pb-10 work-container overflow-x-hidden">
-      <div className=" mx-auto px-4 py-20">
+    <section className="w-full min-h-screen bg-black pb-10">
+      <div className="container mx-auto px-4 py-20">
         {/* Heading */}
         <h1
           // ref={headingRef}
-          className="section-heading text-center mb-12 text-white"
+          className="section-heading text-center mb-20 text-white"
         >
           Works
         </h1>
 
         {/* Projects Grid */}
 
-        <div className="md:max-w-6xl mx-auto ">
-          <div className="flex w-full md:w-auto md:grid md:grid-cols-2 gap-6 md:items-center md:justify-center "
-            ref={scrollContainerRef}
-          >
+        <div className="max-w-6xl mx-auto">
+          <div className="md:grid grid-cols-1 md:grid-cols-2 gap-6 items-center justify-center overflow-x-auto whitespace-nowrap">
             {projectsToDisplay.map((project, index) => (
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="md:inline-block mx-2 md:mx-0 w-full"
+                className="inline-block mx-2 md:mx-0"
                 key={index}
               >
                 <TiltEffect project={project} />
@@ -88,3 +58,6 @@ const Work = () => {
 };
 
 export default Work;
+
+
+
