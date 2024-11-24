@@ -1,57 +1,81 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
 const PageLoader = ({ onComplete }) => {
-    const [count, setCount] = useState(0);
-    const progressBarRef = useRef(null); // Reference to the progress bar
+  const wordsRef = useRef(null);
+  const wordElements = useRef([]);
 
-    useEffect(() => {
-        // Countdown animation from 0 to 100
-        const interval = setInterval(() => {
-            setCount((prevCount) => {
-                if (prevCount < 100) {
-                    return prevCount + 1;
-                } else {
-                    clearInterval(interval); // Stop the interval when 100 is reached
-                    return prevCount;
-                }
-            });
-        }, 20); // Update every 20ms (50 increments per second)
+  useEffect(() => {
+    const words = wordElements.current;
+    const tl = gsap.timeline({ repeat: -1 });
+    
+    // Hide all words initially except the first one
+    gsap.set(words.slice(1), { yPercent: 100, opacity: 0 });
+    
+    words.forEach((word, index) => {
+      const nextIndex = (index + 1) % words.length;
+      
+      // Added longer duration and smoother easing
+      tl
+        // Current word moving up
+        .to(word, {
+          duration: .5,
+          yPercent: -100,
+          opacity: 0,
+          ease: "power2.inOut"
+        })
+        .set(word, { yPercent: 100 })
+        // Next word coming in
+        .fromTo(words[nextIndex], 
+          { 
+            yPercent: 100,
+            opacity: 0 
+          },
+          { 
+            duration: .5,
+            yPercent: 0,
+            opacity: 1,
+            ease: "power2.inOut"
+          },
+          "-=.5" // Overlap animations for smoother transition
+        )
+        // Add a small pause between transitions
+        .to({}, { duration: 0.2 });
+    });
 
+    // Set timeout to call onComplete after 2.5 seconds
+    const timeoutId = setTimeout(() => {
+      onComplete();
+    }, 2500);
 
-        // Once the countdown reaches 100, reveal the background and hide the loader
-        if (count === 100) {
-            gsap.to("#pageLoader", {
-                opacity: 0, duration: 1, delay: 0.5, onComplete: () => {
-                    // Call the onComplete prop to hide the loader in the parent component
-                    if (onComplete) {
-                        onComplete();
-                    }
-                }
-            });
-            gsap.to("body", { backgroundColor: "#ffffff", duration: 1 }); // Change background color
-        }
+    return () => {
+      tl.kill();
+      clearTimeout(timeoutId);
+    };
+  }, [onComplete]);
 
-        return () => clearInterval(interval); // Cleanup the interval on unmount
-    }, [count, onComplete]); // Run this effect when count or onComplete changes
+  return (
+    <div className="min-h-screen bg-black flex items-center justify-center">
 
-    return (
-        <div
-            id="pageLoader"
-            className="fixed top-0 left-0 w-full h-full bg-black flex flex-col items-center justify-center"
-            style={{ zIndex: 9999 }}
-        >
-            <div className="text-center text-white w-full relative flex justify-center">
-                {/* Show the current count */}
-                <div className="count text-3xl md:text-5xl font-extralight bg-black px-4 md:px-7 w-fit z-50 shadow-lg">{count}</div>
-
-                {/* Progress bar container */}
-                <div className="progress-bar absolute top-1/2">
-                    <div></div>
-                </div>
-            </div>
+      <div className="flex items-center gap-3 justify-center">
+        <p className="text-white font-medium text-xl uppercase ">Cyfletech</p>
+        
+        <div className="relative h-10 w-24 md:w-36">
+          <div ref={wordsRef} className="relative h-full flex items-center">
+            {['Chatbots', 'Web', 'Apps', 'AI'].map((word, index) => (
+              <span
+                key={word}
+                ref={el => wordElements.current[index] = el}
+                className="absolute text-green text-lg whitespace-nowrap uppercase"
+              >
+                {word}
+              </span>
+            ))}
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default PageLoader;

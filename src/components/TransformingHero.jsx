@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { NavLink } from 'react-router-dom';
 import { companyEmail, companyInsta, companyPhoneNo, homeHeroImg } from '../utils/constants';
 import { FaEnvelope, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaAnglesRight } from 'react-icons/fa6';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,7 +58,7 @@ const TransformingHero = () => {
       // Scroll animation for larger screens (md and above)
       tl.fromTo(image, 
         {
-          // filter: 'blur(5px)', // Start with a blur of 5px
+          filter: 'blur(3px)', // Start with a blur of 5px
         },
         {
           filter: 'blur(0px)', // End with a blur of 0px
@@ -113,11 +114,11 @@ const TransformingHero = () => {
           </div>
 
 
-          <div className='ml-4 sm:ml-0 mt-5 animate-pulse'>
-            <button className="relative flex items-center justify-center w-fit px-5 py-2 md:py-1 bg-white text-black hover:bg-black hover:scale-110 rounded-full overflow-hidden group transition-all duration-700 cursor-pointer">
+          <div className='ml-4 sm:ml-0 mt-5'>
+            <button className="relative flex items-center justify-center w-fit px-2 py-1 md:py-1 bg-green text-black hover:bg-black hover:scale-110 rounded-sm overflow-hidden group transition-all duration-700 cursor-pointer">
               {/* Text */}
-              <span className=" text-base md:text-3xl font-bold transition-opacity duration-300 group-hover:opacity-0">
-                Connect
+              <span className="flex text-sm md:text-xl font-bold transition-opacity duration-300 group-hover:opacity-0 uppercase">
+                Connect <span className='animate-pulse font-extrabold flex items-center ml-1'><FaAnglesRight /> </span>
               </span>
 
               {/* Icons */}
@@ -127,7 +128,7 @@ const TransformingHero = () => {
                   href={companyInsta}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-pink-600 transition-colors duration-300"
+                  className="hover:text-green transition-colors duration-300"
                 >
                   <FaInstagram className="text-lg md:text-2xl" />
                 </a>
@@ -145,7 +146,7 @@ const TransformingHero = () => {
                 {/* Email */}
                 <a
                   href={`mailto:${companyEmail}`}
-                  className="hover:text-[#EA4335] transition-colors duration-300"
+                  className="hover:text-green transition-colors duration-300"
                 >
                   <FaEnvelope className="text-lg md:text-2xl" />
                 </a>
@@ -163,10 +164,10 @@ const TransformingHero = () => {
         className="absolute top-0 right-0 w-full h-screen bg-cover bg-center overflow-hidden"
       >
         <img
-          // src="https://images.unsplash.com/photo-1642697283420-194938fcc339?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          src={homeHeroImg}
+          src="https://images.unsplash.com/photo-1642697283420-194938fcc339?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          // src={homeHeroImg}
           alt="Designer"
-          className="w-full h-full rounded-xl object-fill"
+          className="w-full h-full rounded-xl object-cover"
         />
         {/* Overlay for better readability */}
         <div className="absolute inset-0 bg-black/60"></div>
