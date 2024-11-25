@@ -7,7 +7,6 @@ import ScrollToTop from './utils/ScrollToTop';
 import LocomotiveScroll from 'locomotive-scroll';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
-import FloatingBtn from './components/FloatingBtn';
 import { gsap } from 'gsap';
 
 const Layout = () => {
