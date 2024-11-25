@@ -46,36 +46,42 @@ const Services = () => {
           <div
             key={service.id}
             ref={(el) => (cardsRef.current[index] = el)}
-            className="relative p-6 bg-black/80 border-2 border-neutral-600 rounded-lg shadow-lg hover:scale-105 hover:border-white hover:shadow-md transition-all duration-300"
+            className="flex flex-col justify-between relative p-6 bg-black/80 border-2 border-neutral-600 rounded-lg shadow-lg hover:scale-105 hover:border-white hover:shadow-md transition-all duration-300"
           >
-            <h3 className="text-2xl font-bold mb-4 tracking-wide text-center">
-              {service.title}
-            </h3>
-            <p className="text-gray-300 text-sm leading-relaxed mb-6">
-              {service.description}
-            </p>
-            {service.bullets && (
-              <ul className="mb-4 text-sm">
-                {service.bullets.map((bullet, index) => (
-                  <li
-                    key={index}
-                    className="flex items-center mb-2 text-gray-300"
-                  >
-                    <span className="w-4 h-4 mr-2 bg-green-500 rounded-full"></span>
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
-            )}
-            {service.imgSrc && (
-              <div className="mt-6">
-                <img
-                  src={service.imgSrc}
-                  alt={service.title}
-                  className="w-full h-64 object-contain rounded-lg border border-neutral-500"
-                />
-              </div>
-            )}
+
+            <div>
+              <h3 className="text-2xl font-bold mb-4 tracking-wide text-center">
+                {service.title}
+              </h3>
+              <p className="text-gray-300 text-sm leading-relaxed mb-6">
+                {service.description}
+              </p>
+            </div>
+
+            <div>
+              {service.bullets && (
+                <ul className="mb-4 text-sm">
+                  {service.bullets.map((bullet, index) => (
+                    <li
+                      key={index}
+                      className="flex items-center mb-2 text-gray-300"
+                    >
+                      <span className="w-4 h-4 mr-2 bg-green-500 rounded-full"></span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {service.imgSrc && (
+                <div className="mt-6">
+                  <img
+                    src={service.imgSrc}
+                    alt={service.title}
+                    className="w-full h-64 object-contain rounded-lg border border-neutral-500"
+                  />
+                </div>
+              )}
+            </div>
             <a
               href={service.link}
               className="block w-full text-center mt-4 py-2 border border-neutral-500 text-green font-semibold rounded-md hover:bg-white hover:text-black transition-all duration-300"
@@ -87,10 +93,10 @@ const Services = () => {
       </div>
 
       {!isServicePage &&
-          <div className='text-white text-center mt-16 uppercase text-base md:text-xl'>
-            <NavLink to='/services' className='border border-borderColor px-3 py-2 rounded-lg bg-selGray-200 hover:bg-selGray transition-colors duration-500' >see our services</NavLink>
-          </div>
-        }
+        <div className='text-white text-center mt-16 uppercase text-base md:text-xl'>
+          <NavLink to='/services' className='border border-borderColor px-3 py-2 rounded-lg bg-selGray-200 hover:bg-selGray transition-colors duration-500' >see our services</NavLink>
+        </div>
+      }
     </section>
   );
 };

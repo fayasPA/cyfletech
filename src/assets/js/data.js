@@ -9,6 +9,7 @@ import Kiran from '../../assets/images/kiran.jpeg'
 import Hafiz from '../../assets/images/hafiz.jpeg'
 import Fayas from '../../assets/images/dp.jpg'
 import Varun from '../../assets/images/varun.jpeg'
+import Sharuk from '../../assets/images/sharuk.jpeg'
 import { Code, Zap, Monitor, Gauge, BarChart3, Layout } from 'lucide-react';
 
 import { FaGithub, FaLinkedinIn, FaInstagram, FaYoutube, FaLaptopCode, FaBriefcase, FaWhatsapp } from "react-icons/fa";
@@ -288,9 +289,9 @@ export const servicesData = [
     {
         id: 5,
         name: "Sharuk Sageer",
+        picture: Sharuk,  // Replace with correct image path
         bio: "Sharuk is a marketing genius with a proven track record in brand building and digital strategies. His expertise ensures maximum reach and impact for our projects.",
-        linkedIn: "https://www.linkedin.com/in/sharuk-sageer/", // Add actual LinkedIn link if available
-        picture: null, // Placeholder for an image, replace with the correct path if available
+        linkedIn: "https://www.linkedin.com/in/sharuk-m-s-5409272a8", // Add actual LinkedIn link if available
     }
 ];
 

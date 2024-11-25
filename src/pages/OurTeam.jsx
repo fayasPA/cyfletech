@@ -41,8 +41,9 @@ const OurTeam = () => {
                     <div
                         key={member.id}
                         ref={(el) => (cardsRef.current[index] = el)}
-                        className="relative p-6 bg-black/80 border-2 border-neutral-600 rounded-lg shadow-lg hover:scale-105 hover:border-white hover:shadow-md transition-all duration-300"
+                        className="relative flex flex-col justify-between p-6 bg-black/80 border-2 border-neutral-600 rounded-lg shadow-lg hover:scale-105 hover:border-white hover:shadow-md transition-all duration-300"
                     >
+                        <div>
                         {member.picture ? (
                             <img
                                 src={member.picture}
@@ -56,6 +57,7 @@ const OurTeam = () => {
                         <h3 className="text-2xl font-bold mb-4 tracking-wide text-center">
                             {member.name}
                         </h3>
+                        </div>
                         <p className="text-gray-300 text-sm leading-relaxed mb-6">
                             {member.bio}
                         </p>

@@ -23,7 +23,7 @@ const Work = () => {
     if (window.innerWidth < 768) {
       gsap.to(container, {
         x: () => -(container.scrollWidth - document.documentElement.clientWidth) + 'px',
-        xPercent: -20,  // Scroll horizontally
+        xPercent: -2,  // Scroll horizontally
         ease: 'none',
         scrollTrigger: {
           trigger: '.work-container',

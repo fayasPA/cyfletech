@@ -44,7 +44,7 @@ const TiltEffect = ({ project }) => {
 
     return (
         <div
-            className="relative p-5 md:p-10 pb-10 border md:border-none border-selGray rounded-xl bg-selGray-200 hover:bg-selGray-100 transition-colors duration-500 shadow-lg w-[80vw] md:w-full mx-auto group"
+            className="relative p-5 md:p-10 pb-10 border md:border-none border-selGray rounded-xl bg-selGray-200 hover:bg-selGray-100 transition-colors duration-500 shadow-lg w-[90vw] md:w-full mx-auto group"
             onMouseMove={onMouseMove}
             onMouseLeave={onMouseLeave}
         >
