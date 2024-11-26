@@ -3,10 +3,13 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { teamMembers } from "../assets/js/data"; // Adjust path to your team data
 import { FaUser } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const OurTeam = () => {
+    const location = useLocation();
+  const isHomepage = location.pathname === '/';
     const sectionRef = useRef(null);
     const cardsRef = useRef([]);
 
@@ -31,7 +34,7 @@ const OurTeam = () => {
     return (
         <section
             ref={sectionRef}
-            className="py-16 px-6 bg-black text-white relative overflow-hidden pb-32"
+            className={`${isHomepage && 'py-16'} px-6 bg-black text-white relative overflow-hidden pb-32`}
         >
             <div className="text-center mb-12">
                 <h2 className="section-heading tracking-wide ">Our Team</h2>

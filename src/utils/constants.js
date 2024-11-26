@@ -1,6 +1,5 @@
 import Logo from '/logo.png'
-// import homeBg from '../assets/images/home_bg.jpg'
-// import homeBg from '../assets/images/home_2.jpg'
+import aboutBg from '../assets/images/about_bg.jpeg'
 import textSectionImage from '../assets/images/luxmoto.png'
 
 
@@ -11,6 +10,7 @@ export const companyEmail = "info@cyfletech.com"
 export const companyInsta = "https://www.instagram.com/__fayas_muthaleef__/"
 export const companyWhatsApp = "https://www.instagram.com/__fayas_muthaleef__/"
 export const textSectionImg = textSectionImage;
+export const aboutBgImg = aboutBg;
 
 
 export const navLists = [
