@@ -3,6 +3,7 @@ import React from 'react';
 import AmanimotorsImage from "../../assets/images/amanimotors.png";
 import LuxemotoImage from "../../assets/images/luxmoto.png";
 import PremiersteelsImage from "../../assets/images/premiersteel.png";
+import AlitamomentsImage from "../../assets/images/alitamoments.png";
 import AltcoImage from "../../assets/images/altco.png";
 import FizziImage from "../../assets/images/fizzi.png";
 import Kiran from '../../assets/images/kiran.jpeg'
@@ -97,66 +98,77 @@ export const experiencesData = [
 ];
 
 export const projectsData = [
-    {
-        title: "Premier Steels",
-        number: "01",
-        description:
-            "Premier Steels is a Steel distribution company website, It make use of react, gsap, etc at frontend.",
-        tags: ["React", "GSAP", "Tailwind"],
-        videoUrl: 'https://youtu.be/5OEk9v8Tzn4',
-        imageUrl: PremiersteelsImage,
-        backgroundColor: "black",
-        link: "https://thepremiersteels.com",
-        githubLink: "https://github.com/fayasPA/premier_steels"
-    },
-    {
-        title: "LuxeMoto",
-        number: "02",
-        description:
-            "Luxemoto is a used car premium website used to showcase the stock of the cars available, It make use of react, gsap, etc at frontend and golang and postgres at the backend.",
-        tags: ["React", "GSAP", "Tailwind", "GoLang"],
-        videoUrl: 'https://youtu.be/jK2rgkw_sOw',
-        imageUrl: LuxemotoImage,
-        backgroundColor: "white",
-        link: "https://luxemoto.in",
-        githubLink: "https://github.com/fayasPA/luxe-moto"
-    },
-    {
-        title: "Amanimotors",
-        number: "03",
-        description:
-            "Amanimotors is a used car premium website used to showcase the stock of the cars available, It make use of react, gsap, etc at frontend and golang and postgres at the backend.",
-        tags: ["React", "GSAP", "Tailwind", "GoLang"],
-        videoUrl: 'https://youtu.be/Uu_pSi12Q7U',
-        imageUrl: AmanimotorsImage,
-        backgroundColor: "black",
-        link: "https://amanimotors.in",
-        githubLink: "https://github.com/fayasPA/amani-motors"
-    },
-    {
-        title: "Alt Co",
-        number: "04",
-        description:
-            "The AltCo  website clone is a project built to learn   advanced web technologies and design principles. It features smooth animations with GSAP, and uses React and Tailwind CSS for modern, visually appealing design.",
-        tags: ["React", "Tailwind", "GSAP"],
-        imageUrl: AltcoImage,
-        videoUrl: 'https://youtu.be/lrXv7fnu0Yg',
-        link: "https://team-nkg-reimagine-round1.vercel.app/",
-        githubLink: "https://github.com/Kiran-nj/BestWeb.git"
-    },
-    {
-        title: "Fizzi Website",
-        number: "05",
-        description:
-            "The Fizzy website is a project built to learn advanced web technologies and design principles. It features smooth animations with GSAP, and uses React and Tailwind CSS and Three.js for modern, visually appealing design",
-        tags: ["React", "Tailwind", "GSAP", "Three.JS"],
-        imageUrl: FizziImage,
-        videoUrl: 'https://youtu.be/QFXBquu7ItI',
-        link: "https://fizzi-demo.vercel.app/",
-        githubLink: "https://github.com/Kiran-nj/Fizzzy"
-    },
-
+  {
+      title: "Fizzi Website",
+      number: "01",
+      description:
+          "The Fizzy website is a project built to learn advanced web technologies and design principles. It features smooth animations with GSAP, and uses React and Tailwind CSS and Three.js for modern, visually appealing design",
+      tags: ["React", "Tailwind", "GSAP", "Three.JS"],
+      imageUrl: FizziImage,
+      videoUrl: 'https://youtu.be/QFXBquu7ItI',
+      link: "https://fizzi-demo.vercel.app/",
+      githubLink: "https://github.com/Kiran-nj/Fizzzy"
+  },
+  {
+      title: "Alt Co",
+      number: "02",
+      description:
+          "The AltCo website clone is a project built to learn advanced web technologies and design principles. It features smooth animations with GSAP, and uses React and Tailwind CSS for modern, visually appealing design.",
+      tags: ["React", "Tailwind", "GSAP"],
+      imageUrl: AltcoImage,
+      videoUrl: 'https://youtu.be/lrXv7fnu0Yg',
+      link: "https://team-nkg-reimagine-round1.vercel.app/",
+      githubLink: "https://github.com/Kiran-nj/BestWeb.git"
+  },
+  {
+      title: "Amanimotors",
+      number: "03",
+      description:
+          "Amanimotors is a used car premium website used to showcase the stock of the cars available. It makes use of React, GSAP, etc., at the frontend and GoLang and PostgreSQL at the backend.",
+      tags: ["React", "GSAP", "Tailwind", "GoLang"],
+      videoUrl: 'https://youtu.be/Uu_pSi12Q7U',
+      imageUrl: AmanimotorsImage,
+      backgroundColor: "black",
+      link: "https://amanimotors.in",
+      githubLink: "https://github.com/fayasPA/amani-motors"
+  },
+  {
+      title: "LuxeMoto",
+      number: "04",
+      description:
+          "Luxemoto is a used car premium website used to showcase the stock of the cars available. It makes use of React, GSAP, etc., at the frontend and GoLang and PostgreSQL at the backend.",
+      tags: ["React", "GSAP", "Tailwind", "GoLang"],
+      videoUrl: 'https://youtu.be/jK2rgkw_sOw',
+      imageUrl: LuxemotoImage,
+      backgroundColor: "white",
+      link: "https://luxemoto.in",
+      githubLink: "https://github.com/fayasPA/luxe-moto"
+  },
+  {
+      title: "Premier Steels",
+      number: "05",
+      description:
+          "Premier Steels is a steel distribution company website. It makes use of React, GSAP, etc., at the frontend.",
+      tags: ["React", "GSAP", "Tailwind"],
+      videoUrl: 'https://youtu.be/5OEk9v8Tzn4',
+      imageUrl: PremiersteelsImage,
+      backgroundColor: "black",
+      link: "https://thepremiersteels.com",
+      githubLink: "https://github.com/fayasPA/premier_steels"
+  },
+  {
+    title: "Alita Moments",
+    number: "06",
+    description:
+        "Alita moments is a photography portfolio website. It makes use of React, GSAP, etc., at the frontend",
+    tags: ["React", "GSAP", "Tailwind"],
+    imageUrl: AlitamomentsImage,
+    backgroundColor: "black",
+    link: "https://alitamoments.com",
+    githubLink: "https://github.com/fayasPA/alitamoments_photography"
+}
 ];
+
 
 export const skillsData = [
     "HTML",

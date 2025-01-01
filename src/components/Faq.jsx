@@ -39,10 +39,10 @@ const FAQ = () => {
   }, []);
 
   return (
-    <div className="bg-white min-h-screen md:min-h-[50vh] px-6 sm:px-10 lg:px-20 flex justify-center items-center">
+    <div className="bg-white min-h-screen md:min-h-[50vh] px-6 sm:px-10 lg:px-20 flex justify-center items-center font-karla">
       <div className="faq-container flex flex-col md:flex-row justify-center gap-6 max-w-[80rem] py-20 md:pt-40">
         {/* left Section (Heading) */}
-        <div className="faq-left md:w-1/2 text-center">
+        <div className="faq-left md:w-1/2 text-center font-doto">
           <h1 className="section-heading">FAQs</h1>
         </div>
 

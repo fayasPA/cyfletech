@@ -12,7 +12,8 @@ const Work = () => {
 
   // Check if the current path is "/work"
   const isWorkPage = location.pathname === '/work';
-  const projectsToDisplay = isWorkPage ? projectsData : projectsData.slice(0, 4);
+  const projectsToDisplay = isWorkPage ? [...projectsData].reverse() : [...projectsData].reverse().slice(0, 4);
+
 
   const scrollContainerRef = useRef(null);
 

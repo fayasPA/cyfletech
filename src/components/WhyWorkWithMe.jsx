@@ -36,14 +36,14 @@ const WhyWorkWithMe = () => {
   }, []);
 
   return (
-    <div ref={galleryRef} className="flex bg-white">
+    <div ref={galleryRef} className="flex bg-white font-karla">
       {/* Left Content */}
       <div
         ref={rightPanelRef}
         className="w-full md:w-1/2 h-auto md:h-screen flex flex-col justify-center"
       >
         <div className="md:w-[40vw] md:h-[40vw] overflow-hidden flex justify-center items-center mx-auto">
-          <span className="section-heading py-10">
+          <span className="section-heading py-10 font-doto">
             Why work with us?
           </span>
         </div>

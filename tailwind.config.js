@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         karla: ['Karla', 'sans-serif'],
         roboto: ['Roboto', 'sans-serif'],
+        doto: ['Doto', 'sans-serif'],
       },
       colors: {
         selGray: {
