@@ -8,6 +8,7 @@ import LocomotiveScroll from 'locomotive-scroll';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import { gsap } from 'gsap';
+import ChatbotUI from './components/ChatbotUI';
 
 const Layout = () => {
   const [isLoaderVisible, setIsLoaderVisible] = useState(true);
@@ -66,6 +67,8 @@ const Layout = () => {
         <div ref={footerRef} style={{ visibility: isLoaderVisible ? 'hidden' : 'visible' }}>
           <Footer />
         </div>
+      <ChatbotUI />
+
       </div>
 
       {/* Render loader on top if visible */}
