@@ -11,7 +11,7 @@ export const companyInsta = "https://www.instagram.com/__fayas_muthaleef__/"
 export const companyWhatsApp = "https://www.instagram.com/__fayas_muthaleef__/"
 export const textSectionImg = textSectionImage;
 export const aboutBgImg = aboutBg;
-
+export const chatBotUrl = "https://varunmsaji01-docker-chat-backend.hf.space/ask/"
 
 export const navLists = [
     { name: 'Home', path: '/', order: 1 },
