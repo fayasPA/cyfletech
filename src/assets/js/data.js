@@ -11,6 +11,7 @@ import Hafiz from '../../assets/images/hafiz.jpeg'
 import Fayas from '../../assets/images/dp.jpg'
 import Varun from '../../assets/images/varun.jpeg'
 import Sharuk from '../../assets/images/sharuk.jpeg'
+import Saleel from '../../assets/images/saleel.jpeg'
 import { Code, Zap, Monitor, Gauge, BarChart3, Layout } from 'lucide-react';
 
 import { FaGithub, FaLinkedinIn, FaInstagram, FaYoutube, FaLaptopCode, FaBriefcase, FaWhatsapp } from "react-icons/fa";
@@ -304,7 +305,14 @@ export const servicesData = [
         picture: Sharuk,  // Replace with correct image path
         bio: "Sharuk is a marketing genius with a proven track record in brand building and digital strategies. His expertise ensures maximum reach and impact for our projects.",
         linkedIn: "https://www.linkedin.com/in/sharuk-m-s-5409272a8", // Add actual LinkedIn link if available
-    }
+    },
+    {
+      id: 6,
+      name: "Saleel Hisan",
+      picture: Saleel,  // Replace with correct image path
+      bio: "Saleel Hisan is a Node.js backend developer, ensuring scalable, efficient, and high-performance server-side solutions.",
+      linkedIn: "https://www.linkedin.com/in/saleelhisan/", // Add actual LinkedIn link if available
+  }
 ];
 
   
