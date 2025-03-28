@@ -30,6 +30,9 @@ jobs:
       - name: Build Project
         run: npm run build
 
+      - name: Copy .htaccess to dist folder
+        run: cp .htaccess dist/.htaccess
+
       - name: Commit and Push the `dist` folder
         run: |
           git config --global user.name "github-actions[bot]"
