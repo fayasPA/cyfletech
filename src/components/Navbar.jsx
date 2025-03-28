@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { companyEmail, companyName, navLists } from "../utils/constants";
 import { gsap } from "gsap";
-import HamburgerBtn from "./hamburgerBtn";
+import HamburgerBtn from "./HamburgerBtn";
 
 const Navbar = () => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
