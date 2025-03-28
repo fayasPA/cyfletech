@@ -2,7 +2,7 @@
 
 # Set variables
 BUILD_DIR="dist"
-TARGET_DIR="/Users/smart/Downloads/sample"
+TARGET_DIR="/home/sites/39b/b/bc5b152c63/cyfletech_build_folder"
 
 echo "Starting Vite React build process..."
 
