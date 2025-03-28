@@ -3,7 +3,11 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main  # Runs only when code is merged into `main`
+      - main
+
+permissions:
+  contents: write
+  actions: write
 
 jobs:
   build:
@@ -13,12 +17,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Ensures the full history is fetched
+          fetch-depth: 0
 
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20  # Use your Node.js version
+          node-version: 20
 
       - name: Install Dependencies
         run: npm install
@@ -32,4 +36,4 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add -f dist
           git commit -m "Update dist folder after merge to main" || echo "No changes to commit"
-          git push https://oauth2:${{ secrets.SERVERBYT_WORKFLOW_TOKEN }}@github.com/fayasPA/cyfletech.git main
+          git push https://x-access-token:${{ secrets.SERVERBYT_WORKFLOW_TOKEN }}@github.com/fayasPA/cyfletech.git main
